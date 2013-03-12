@@ -1,0 +1,25 @@
+ <form name="registrar_proveedor" method="post" action="proveedor.php?action=[accion]">
+	<h3 class="titulo">[Titulo]</h3>
+		<table class="tabla_form">
+			<tr>
+				<td>Nombre Proveedor</td>
+				<td><input name="nombre_proveedor" type="text" value="[nombre]" required="required" placeholder="nombre del proveedor" /></td>
+			</tr>
+			<tr>
+				<td>Direccion Proveedor</td>
+				<td><input name="direccion_proveedor" type="text" value="[direccion]" required="required" placeholder="direccion proveedor" /></td>
+			</tr>
+			<tr>
+				<td>Telefono Proveedor</td>
+				<td><input name="telefono_proveedor" type="text" value="[telefono]" required="required" placeholder="telefono" /></td>
+			</tr>
+			<tr>
+				<td>Descripcion Proveedor</td>
+				<td><textarea name="descripcion_proveedor">[descripcion]</textarea></td>
+			</tr>	
+			<tr>
+				<td><input type="submit" value="Guardar" /></td>
+				<td><input type="button" value="Cancelar" onclick="closeajax('cont_ajax')"></td>
+			</tr>	
+		</table><br /><br />
+ </form>

@@ -1,0 +1,178 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	margin:20px;
+	padding:0px;
+	background-color:#c4f3f0;
+	background-image: url(../images/fondo.jpg);
+	background-repeat:repeat-x;
+}
+
+a{
+}
+
+img{
+}
+
+table{
+}
+
+/* estilo de la estructura de la pagina */
+
+#page{
+	margin:0px auto;
+	padding:0px;
+	width:900px;
+	height:600px;
+	background-color:#CC9900;
+}
+
+#header{
+	margin:0px;
+	padding:0px;
+	height:151px;
+	width:900px; /*mucho cuidado 100%*/
+	background-color:#CC0000;
+}
+
+	#logo{
+		margin:0px;
+		padding:0px;
+		width:900px;
+		height:152px;
+		background-image: url(../images/fondo_logo1.jpg);
+		background-repeat:repeat-x;
+	}
+	
+	#img_logo{
+		padding-left:0px;
+		height:150px;
+	}	
+ #menu{
+		margin:0px;
+		padding:0px;
+		width:900px;
+		height:31px;
+		background-image:url(../images/footer.jpg);
+		background-repeat:repeat-x;
+	}
+	#main_nav{
+		margin:0px;
+		padding:0px;
+		width:900px;
+		padding-top:4px;
+		padding-bottom:5px;
+	}
+	#main_nav li{
+		display: inline;
+		padding-top:5px;
+		padding-bottom:5px;
+		/*border-right:solid 2px #003333; */
+	}
+	#main_nav li a{
+		color:#003333;
+		font-size:18px;
+		text-decoration:none;
+		padding-top:5px;
+		padding-bottom:5px;
+		padding-left:25px;
+		padding-right:25px;
+	}
+	#main_nav li a:hover{
+		background-color:#b3fbce;
+	}
+			
+#content{
+	float: right;
+	margin:0px;
+	padding:0px;
+	width:900px; /*mucho cuidado 100%*/
+	background-color: #FFFFFF;
+	/*background-image:url(../images/icon_laboratorio.png);
+	background-position: center;
+	background-repeat:no-repeat;*/
+}
+
+	#side_bar{
+		float:right;
+		margin:0px;
+		padding:0px;
+		width:200px;
+		height:395px;
+		background-image: url(../images/fondo_side_bar1.jpg); 
+		background-repeat:repeat-y;
+		background-repeat:repeat-x;
+		
+	}	
+		#main_sidebar{
+		margin:0px;
+		padding:0px;
+		width:200px;
+		padding-top:4px;
+		padding-bottom:5px;
+	}
+		#side_bar ul{
+		list-style:none;
+		margin:0px;
+		padding:0px;
+	}
+		#side_bar ul li{
+		border-bottom:1px solid #999999;
+	}
+		#side_bar ul li a{
+		text-decoration:none;
+		color:#006600;
+		display:block;
+		padding:10px;
+	}
+		#side_bar ul li ul{
+		display:none;
+	}
+		#side_bar ul li:hover ul{
+		background:#92f9b9;
+		display:block;
+	}
+	#form_login{
+		font-size:14px;
+		color:black;
+		padding-left:15px;
+	}
+	#main_content{
+		float: none;
+		margin:0px;
+		padding:0px;
+		width:900px;
+		background-color:#FFFFFF;
+		
+	}
+	#listado{
+		padding-left:10px;
+		padding-right:10px;
+	}
+	.titulo{
+		text-align: center;
+		font-style:oblique;
+		font-variant: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color:#006600;
+	}
+	.cb_tbl{
+		background-color:#60bf94;	
+		color:#fbfdfc;
+	}
+	.tabla_form{
+		background-color:#ffffff;	
+		border: solid 2px #60bf94;
+	}
+
+#footer{
+	float:left;
+	margin:0px;
+	padding:0px;
+	width:900px;
+	height:30px;
+	background-image: url(../images/footer1.jpg);
+	background-repeat:repeat-x;
+}
