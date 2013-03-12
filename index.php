@@ -21,7 +21,7 @@ switch($accion) {
 	header("Location:administrador.php");
 	break;
     case "error":
-	echo "<script>alert('Ocurrio un error');</script>";
+	echo "<script>alert('Error al hacer login');</script>";
 	//header("Location:index.php");
 	break;
 }
