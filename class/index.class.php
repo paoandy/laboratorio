@@ -28,8 +28,20 @@ class index
 			echo"<script>window.location.href='index.php?action=error'</script>";
 			//header("Location:");
 		} else{
-			$libLogin -> loginUser($idusuario);
-			echo"<script>window.location.href='index.php?action=administrador'</script>";
+		    // Tipo de Usuario
+		    // 0 -> Administrador
+		    // 1 -> Secretaria
+		    // 2 -> Tecnico
+		    $libLogin -> loginUser($idusuario);
+		    
+		    switch($_SESSION['tipousuario']){
+			case 0:
+			    header("Location:index.php?action=administrador");
+			    break;
+			case 1:
+			    header("Location:index.php?action=secretaria");
+			    break;
+		    }
 		}
 	}
 	function salir(){

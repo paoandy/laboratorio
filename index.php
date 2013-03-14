@@ -4,9 +4,9 @@ require_once('class/index.class.php');
 
 $class = new index;
  if(isset ($_GET['action'] ))
-	$accion = $_GET['action'];
-else $accion =""; 
-switch($accion) {
+	$action = $_GET['action'];
+else $action =""; 
+switch($action) {
     case "viewPopUp" :
         echo $class->viewPopUp();
         exit(); /*solo ajax*/
@@ -20,9 +20,9 @@ switch($accion) {
     case "administrador":
 	header("Location:administrador.php");
 	break;
-     //case "secretaria":
-	//header("Location:secretaria.php");
-	//break;
+     case "secretaria":
+	header("Location:secretaria.php");
+	break;
     case "error":
 	echo "<script>alert('Error al hacer login');</script>";
 	//header("Location:index.php");
