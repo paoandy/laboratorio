@@ -20,6 +20,9 @@ switch($accion) {
     case "administrador":
 	header("Location:administrador.php");
 	break;
+     //case "secretaria":
+	//header("Location:secretaria.php");
+	//break;
     case "error":
 	echo "<script>alert('Error al hacer login');</script>";
 	//header("Location:index.php");

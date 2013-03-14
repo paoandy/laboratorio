@@ -71,7 +71,7 @@ class index
 		}
 		elseif($_SESSION['logged']==0){	
 			$template ->SetParameter("login_form",$this ->formLogin());
-			//$template ->SetParameter("menu_sidebar","");
+			$template ->SetParameter("menu_sidebar","");
 		}
 		 return $template->Display();
 	}

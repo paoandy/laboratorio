@@ -1,5 +1,5 @@
 <?php
-class administrador
+class secretaria
 {
     function showContent()
 	{
@@ -19,16 +19,16 @@ class administrador
     
 	function salir(){
 		session_destroy();
-		echo"<script>window.location.href='administrador.php'</script>";
+		echo"<script>window.location.href='index.php'</script>";
 	}
 	function menuPrincipal(){
 		$template = new template;
 		$template -> SetTemplate("tpl/menu_princ.html");
 		return $template -> Display();
 	}
-		function menuAdministrador(){
+		function menuSecretaria(){
 		$template = new template;
-		$template -> SetTemplate("tpl/menu_admin.html");
+		$template -> SetTemplate("tpl/menu_secr.html");
 		return $template -> Display();
 	}
 
@@ -37,9 +37,9 @@ class administrador
 		$template = new template;// template permite contruir la interfaz de usuario
 		$template->SetTemplate('tpl/administrador.html'); //sets the template for this function
 		//$var = "contenido de la variable";
-		$template ->SetParameter("titulo","SLC Administrador");
+		$template ->SetParameter("titulo","SLC Secretaria");
 		$template->SetParameter("menu",$this->menuPrincipal());
-		$template->SetParameter("menusidebar",$this->menuAdministrador());
+		$template->SetParameter("menusidebar",$this->menuSecretaria());
 		$template->SetParameter("contenido","bla alsbndlasl;d");
 		
 		return $template->Display();

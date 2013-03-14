@@ -121,7 +121,7 @@ class paciente
 		IF(!isset($_SESSION['logged']))
 			$_SESSION['logged']=0;
 		if($_SESSION ['logged']==1){
-		$template ->SetParameter("login_form","<h4>USUARIO:".$_SESSION['nombre']."</h4>");
+		$template ->SetParameter("login_form","<h4>USUARIO:".$_SESSION['nombreusuario']."</h4>");
 			if($_SESSION['tipousuario']==1){ //secretaria
 			$template ->SetParameter("menu_sidebar",$this->menuSecr());
 			$template ->SetParameter("contenido",$this-> Listapaciente());

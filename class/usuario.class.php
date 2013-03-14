@@ -137,7 +137,7 @@ class usuario
 				$template ->SetParameter("menu_sidebar",$this-> menuAdmin());
 				$template ->SetParameter("contenido",$this-> Listausuario());
 				}
-			elseif($_SESSION['tipo']==1){ //secretaria
+			elseif($_SESSION['tipousuario']==1){ //secretaria
 			$template ->SetParameter("menu_sidebar",$this->menuSecr());
 			$template ->SetParameter("contenido","UD. no tiene privilegios  a este módulo");
 			}
