@@ -41,6 +41,9 @@ class index
 			case 1:
 			    header("Location:index.php?action=secretaria");
 			    break;
+			case 2:
+			    header("Location:index.php?action=tecnico");
+			    break;
 		    }
 		}
 	}
@@ -78,8 +81,11 @@ class index
 			$template ->SetParameter("login_form","<h5>USUARIO:".$_SESSION['nombreusuario']."</h5>");
 			if($_SESSION['tipousuario']==0)//administrador
 				$template->SetTemplate('tpl/administrador.html');
-			elseif($_SESSION['tipousuario']==1)//secretaria
+			else
+			if($_SESSION['tipousuario']==1)//secretaria
 				$template->SetTemplate('tpl/secretaria.html');
+			elseif($_SESSION['tipousuario']==2)//tecnico
+				$template->SetTemplate('tpl/tecnico.html');	
 		}
 		elseif($_SESSION['logged']==0){	
 			$template ->SetParameter("login_form",$this ->formLogin());
