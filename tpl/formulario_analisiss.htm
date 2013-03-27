@@ -1,0 +1,29 @@
+ <form name="registrar_paciente" method="post" action="paciente.php?action=[accion]">
+	<h3 class="titulo">[Titulo]</h3>
+		<table class="tabla_form">
+			<tr>
+				<td>Nombre Paciente</td>
+				<td><input name="nombre_paciente" type="text" value="[nombre]" required="required" placeholder="nombre paciente" /></td>
+			</tr>
+			<tr>
+				<td>Edad Paciente</td>
+				<td><input name="edad_paciente" type="text" value="[edad]" required="required" placeholder="edad paciente" /></td>
+			</tr>
+			<tr>
+				<td>Sexo Paciente</td>
+				<td><input name="sexo_paciente" type="text" value="[sexo]" required="required" placeholder="sexo del paciente" /></td>
+			</tr>
+			<tr>
+				<td>Telefono Paciente</td>
+				<td><input name="telefono_paciente" type="text" value="[telefono]" required="required" placeholder="telefono" /></td>
+			</tr>
+			<tr>
+				<td>Descripcion Proveedor</td>
+				<td><textarea name="descripcion_paciente">[descripcion]</textarea></td>
+			</tr>	
+			<tr>
+				<td><input type="submit" value="Guardar" /></td>
+				<td><input type="button" value="Cancelar" onclick="closeajax('cont_ajax')" ></td>
+			</tr>	
+		</table><br /><br />
+ </form>

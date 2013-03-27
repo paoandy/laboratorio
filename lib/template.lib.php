@@ -30,10 +30,19 @@ class template
 		$this->html = implode("",file($this->template));
 		foreach($this->parameter as $key => $value)
 		{
+			//echo $key."<BR>";
 			$temp = '['.$key.']';
 			$this->html = str_replace($temp,$value ,$this->html);
 		}
 		return $this->html;
+	}
+	
+	function DisplayRaw() //retorna el html resultante de hacer los reemplazos fijados por SetParameter en el template especificado.
+	{
+		$líneas = file($this->template);
+		$contenido ="";
+		
+		return $líneas;
 	}
 }
 ?>

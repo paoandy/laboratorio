@@ -17,7 +17,7 @@ class login
 	function loginUser($user_id)
 	{
 		$query = new query;
-		$row = $query -> getRow("idusuario, tipousuario","usuario","WHERE idusuario= $user_id");
+		$row = $query -> getRow("idusuario, nombreusuario, tipousuario","usuario","WHERE idusuario= $user_id");
 		$_SESSION['logged'] = 1;  /* sesion iniciada y 0 nada*/
 		$_SESSION['nombreusuario'] = $row['nombreusuario'];
 		$_SESSION['idusuario'] = $row['idusuario'];
