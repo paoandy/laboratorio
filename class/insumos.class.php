@@ -13,7 +13,8 @@ class insumos
 			$template -> SetParameter('accion','guardarNuevo');
 			return $template -> Display();
 		}
-			function editar(){
+                
+	function editar(){
 		$query = new query;
 		$template = new template;
 		$template -> SetTemplate("tpl/formulario_insumos.html");

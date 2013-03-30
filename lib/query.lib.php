@@ -3,12 +3,24 @@ class query
 {
  	var $query;
 	
+        function siguiente($columna,$tabla){
+            $sql = "SELECT COUNT('".$columna."') AS TOTAL FROM ".$tabla;
+            $resultado = $this->makequery($sql);
+            
+	    if ($row = mysql_fetch_assoc($resultado) ){
+		    return $row['TOTAL'];
+            }else{
+		return 0;
+	    }
+        }
+        
 	function makequery($sql)
 	{
 		$result = mysql_query($sql);
 		if(mysql_error())
 		{
 			echo '<center>';
+                        echo $sql."<br>";
 			echo '<div style="border: 1px solid #0253b8; font: 12px verdana; width: 700px; margin: 0 auto; color: #0253b8; background-color: #EFEFEF; clear: both;">';
 			echo "<div style=\"border-bottom: 1px solid #0253b8; padding: 10px;\" align=\"left\"><strong>Error:</strong><br>".mysql_error()."</div>";
 			echo "<div style=\"background-color: #EAEAEA; padding: 10px;\" align=\"left\">{$sql}</div>";

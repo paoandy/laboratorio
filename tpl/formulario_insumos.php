@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php include '../lib/zebra/Zebra_Form.php'; ?>
 <html lang="es">
 <head>

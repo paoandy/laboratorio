@@ -1,0 +1,110 @@
+@import url(http://fonts.googleapis.com/css?family=Averia+Gruesa+Libre);
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	background: rgb(225,225,225);
+}
+.login{
+	position: absolute;
+	font-family: 'Averia Gruesa Libre', cursive;
+	background: rgb(180,180,180);
+	width: 300px;
+	height: 200px;
+	padding: 10px;
+	top: 50%;
+	margin-top: -100px;
+	left: 50%;
+	margin-left: -150px;
+	box-shadow: 5px 5px  5px rgb(100,100,100);
+	border-radius: 10px;
+}
+.login img{
+	width: 50px;
+	height: 50px;
+}
+.login>span{
+	margin: auto;
+	font-size: 48px;
+	display: inline;
+	line-height: 50px;
+}
+.login input{
+	font-family: 'Averia Gruesa Libre', cursive;
+	font-size: 24px;
+	margin: 5px;
+	width: 285px;
+	display: inline-block;
+	border-radius: 10px;
+}
+.login input[type='submit']{
+	margin-left: 8px;
+	border-radius: 20px;
+	background: green;
+	border: none;
+	color: white;
+	box-shadow: 2px 2px 2px black;
+	cursor: pointer;
+	transition: all 1s;
+}
+.login input[type='submit']:hover{
+	transition: all 1s;
+	background: rgb(98,192,99);
+}
+#page{
+	position: absolute;
+	width: 90%;
+	min-width: 1280px;
+	min-height: 640px;
+	height: 90%;
+	top:5%;
+	left: 5%;
+	overflow: hidden;
+	background: linear-gradient( 90deg, rgb(248,252,251) 50%, rgb(110,243,164), rgb(44,170,132) );
+	box-shadow: 5px 5px 5px 5px rgb(100,100,100), -5px -5px 5px 5px rgb(100,100,100);
+	border-radius: 30px;
+	font-family: 'Averia Gruesa Libre', cursive;
+}
+header{
+	position: relative;
+	width: 100%;
+	height: 20%;
+}
+header>section{
+	padding: 30px;
+}
+header>section>span img{
+	height: 70px;
+	width: 70px;
+}
+footer{
+	height: 10%;
+	width: 100%;
+	background: grey;
+	text-align: center;
+	position: relative;
+}
+#main{
+	width: 90%;
+	height: 70%;
+}
+#contenido{
+	position: absolute;
+	height: 100%;
+	width: 80%;
+	background: rgb(250,250,250);
+	overflow: auto;
+}
+#contenido section{
+	margin: 30px;
+}
+#opciones{
+	position: absolute;
+	height: 100%;
+	width:20%;
+	right: 0px;
+}
+#opciones nav{
+	margin: 10px;
+}

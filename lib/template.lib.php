@@ -37,12 +37,9 @@ class template
 		return $this->html;
 	}
 	
-	function DisplayRaw() //retorna el html resultante de hacer los reemplazos fijados por SetParameter en el template especificado.
+	function DisplayRaw()
 	{
-		$líneas = file($this->template);
-		$contenido ="";
-		
-		return $líneas;
+	    return $this->template;
 	}
 }
 ?>
