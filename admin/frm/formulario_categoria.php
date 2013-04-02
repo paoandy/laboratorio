@@ -43,15 +43,21 @@
         
         
         if ($form->validate()) {
-            $idcategorio = $_POST['idcategoria'];
+            $idcategoria = $_POST['idcategoria'];
             $idseccion = $_POST['idseccion'];
             $nombrecategoria = $_POST['nombrecategoria'];
             $descripcioncategoria = $_POST['descripcion'];
             
-            $query->dbInsert(array('idcategoria'=>$idcategorio,'idseccion'=>$idseccion,'nombrecategoria'=>$nombrecategoria,'descripcioncategoria'=>$descripcioncategoria), 'categoria_analisis');
+            $query->dbInsert(array('idcategoria'=>$idcategoria,'idseccion'=>$idseccion,'nombrecategoria'=>$nombrecategoria,'descripcioncategoria'=>$descripcioncategoria), 'categoria_analisis');
         } 
         
 
         $form->render('*horizontal');
     }
 ?>
+<fieldset>
+    <legend>Rangos</legend>
+    <?php
+        include 'frm/formulario_rango.php';
+    ?>
+ </fieldset>

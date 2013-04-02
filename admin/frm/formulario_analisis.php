@@ -1,5 +1,5 @@
 <fieldset>
-    <legend>Seccion de Analisis</legend>    
+<legend>Seccion de Analisis</legend>    
 
     <?php
         $query = new query;
@@ -25,9 +25,9 @@
            // validate the form
            if ($form->validate()) {
                 $idseccion = $_POST['idseccion'];
-                $nombre = $_POST['nombreseccion'];
+                $nombreseccion = $_POST['nombreseccion'];
                 
-                $query->dbInsert(array('idseccion'=>$idseccion,'nombreseccion'=>$nombre), 'seccion');
+                $query->dbInsert(array('idseccion'=>$idseccion,'nombreseccion'=>$nombreseccion), 'seccion');
            }
            
            // auto generate output, labels above form elements
@@ -35,10 +35,10 @@
     
     ?>
  </fieldset>
-
 <fieldset>
     <legend>Categoria de Seccion</legend>
     <?php
         include 'frm/formulario_categoria.php';
     ?>
 </fieldset>
+
