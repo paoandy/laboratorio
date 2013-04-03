@@ -1,17 +1,17 @@
 <?php
     require_once('lib/includeLibs.php');
-    
+
     //Preguntar Si Iniciamos Session
-    
+
     if(isset($_POST['login']) && isset($_POST['password'])){
         $sesion = new login;
         $id = $sesion->validate($_POST['login'],$_POST['password']);
         
         if ($id){
             $sesion->loginUser($id);
-            
+
             $tipo = $_SESSION['tipousuario'];
-            
+
             switch($tipo){
                 case 0:
                     header("Location:admin/");
@@ -37,12 +37,14 @@
 </head>
 <body>
     <section class="login">
-        <span><img src="images/laboratorio.png">HEMOLAB</span>
-        <form name="sesion" action="index.php" method="post">
-            <input type="text" name='login' placeholder='Nombre de Usuario'/>
-            <input type='password' name='password' placeholder='Password'/>
-            <input type='submit' value="Ingresar"/>
-        </form>
+        <section>
+            <span><img src="images/laboratorio.png">HEMOLAB</span>
+            <form name="sesion" action="index.php" method="post">
+                <input type="text" name='login' placeholder='Nombre de Usuario'/>
+                <input type='password' name='password' placeholder='Password'/>
+                <input type='submit' value="Ingresar"/>
+            </form>
+        </section>
     </section>
 </body>
 </html>
