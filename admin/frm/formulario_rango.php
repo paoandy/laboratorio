@@ -40,10 +40,10 @@
         $obj = $form->add('hidden', 'idrango', $query->siguiente('idrango','rango'));
         
         
-        $secciones = $query->getRows('idcategoria, nombrecategoria','categoria_analisis');
+        $categorias= $query->getRows('idcategoria, nombrecategoria','categoria_analisis');
         
         $array;
-        foreach($secciones as $key){
+        foreach($categorias as $key){
             $array[$key['idcategoria']] = $key['nombrecategoria'];
         }
 
