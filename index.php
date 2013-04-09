@@ -23,7 +23,7 @@
                     echo "<span class='error'>Ocurrio Un Error al iniciar Sesion, Usted no tiene un tipo de usuario asignado</span>";
             }
         }else{
-            echo "<span class='error'>Error Al Iniciar Sesion</span>";
+            echo "<span class='error'>Error Al Iniciar Sesion, No Existe Su Usuario</span>";
         }
     }
 ?>
@@ -41,7 +41,7 @@
 <body>
     <section class="login">
         <section>
-            <span><img src="images/laboratorio.png">HEMOLAB</span>
+            <span><img src="images/logo.png">HEMOLAB</span>
             <form name="sesion" action="index.php" method="post">
                 <input type="text" name='login' placeholder='Nombre de Usuario'/>
                 <input type='password' name='password' placeholder='Password'/>

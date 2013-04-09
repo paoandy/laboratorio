@@ -32,13 +32,24 @@ class query
 		return $result;
 	}
 
+        function getRowsArray($type, $sql, $sql_sub = '') //recibe los valores a ser seleccionados, la tabla y las condiciones, retorna un array bidimensional con los resultados obtenidos
+	{
+		$sql2 = 'SELECT '.$type.' FROM '.$sql.' '.$sql_sub;
+		$row = array();
+		$query = $this->makequery($sql2);
+
+		while($temp = mysql_fetch_assoc($query))
+			$row[] = $temp;
+		return $row;
+	}
+
 	function getRows($type, $sql, $sql_sub = '') //recibe los valores a ser seleccionados, la tabla y las condiciones, retorna un array bidimensional con los resultados obtenidos
 	{
 		$sql2 = 'SELECT '.$type.' FROM '.$sql.' '.$sql_sub;
 		$row = array();
 		$query = $this->makequery($sql2);
 
-		//while($temp = mysql_fetch_assoc($query)){
+		//while($temp = mysql_fetch_assoc($query))
 		//	$row[$id] = $temp;
 		//return $row;
                 return $query;

@@ -4,13 +4,12 @@ class login
   function validate($login,$password) //recives the strings with username & password, returns the user id if the user is registered & false if there were not coincidences in the database
   {
     $query = new query;
-    $pass = md5(md5($password));
-    //$pass = $password;
-    $row = $query->getRows("login, password, idusuario","usuario");
+    //$pass = md5($password);
+    $pass = $password;
+    $row = $query->getRowsArray("login, password, idusuario","usuario");
     foreach($row as $key)
     {
-      if ($key['login'] == $login)
-      	if ($key['password'] == $pass)
+      if ($key['login'] == $login && $key['password'] == $pass)
       		return $key['idusuario'];
     }
     return false;
