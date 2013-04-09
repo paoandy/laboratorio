@@ -30,8 +30,7 @@
         <section id="main">
             <section id="contenido">
                 <section>
-                    Bienvenido Administrador,
-
+                    <?php include 'frm/formulario_analisis.php';?>
                 </section>
             </section>
             <section id="opciones">

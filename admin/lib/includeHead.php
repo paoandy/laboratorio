@@ -6,4 +6,4 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="../lib/zebra/public/javascript/zebra_form.js"></script>
     <script type="text/javascript" src="../scripts/ajax.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="../style/appleMenu/css/style.css"/>
