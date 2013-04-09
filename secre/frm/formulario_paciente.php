@@ -62,9 +62,3 @@
 	  $form->render('*horizontal');
   ?>
 </fieldset>
- <fieldset>
-    <legend>Medico</legend>
-    <?php
-        include 'frm/formulario_medico.php';
-    ?>
-</fieldset>

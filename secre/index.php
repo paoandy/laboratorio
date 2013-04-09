@@ -35,7 +35,8 @@
                         <li><a href="#">Registrar</a>
                         <ul>
                         <li><a href="paciente.php">Paciente </a></li>
-                        <li><a href="">Cobro </a></li>
+                        <li><a href="medico.php">Medico </a></li>
+                        <li><a href="cobro.php">Cobro </a></li>
                         <li><a href="">Entrega Resultados</a></li>
                         </ul>
                         <li><a href="#">Ver Reservas</a></li> 

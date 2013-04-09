@@ -25,7 +25,7 @@
         <section id="main">
             <section id="contenido">
                 <section>
-                    <?php include 'frm/formulario_paciente.php';?>
+                    <?php include 'frm/formulario_cobro.php';?>
                 </section>
             </section>
             <section id="opciones">
@@ -34,8 +34,7 @@
                         <li><a href="../logout.php">Desconectarse</a></li>
                         <li><a href="#">Registrar</a>
                         <ul>
-                        <li><a href="medico.php">Medico</a></li>
-                        <li><a href="">Cobro </a></li>
+                        <li><a href="paciente.php">Paciente </a></li>
                         <li><a href="">Entrega Resultados</a></li>
                         </ul>
                         <li><a href="#">Ver Reservas</a></li> 
