@@ -6,7 +6,7 @@
     if(isset($_POST['login']) && isset($_POST['password'])){
         $sesion = new login;
         $id = $sesion->validate($_POST['login'],$_POST['password']);
-        
+
         if ($id){
             $sesion->loginUser($id);
 
@@ -40,6 +40,7 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="lib/zebra/public/javascript/zebra_form.js"></script>
     <script type="text/javascript" src="scripts/ajax.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
     <section class="login">

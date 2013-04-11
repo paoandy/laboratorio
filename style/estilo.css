@@ -5,6 +5,10 @@
 	padding: 0px;
 }
 
+legend{
+	cursor: pointer;
+}
+
 #backgroundFix{
 	width: 100%;
 	height: 100%;
@@ -141,7 +145,7 @@ footer{
 	display: inline-block;
 	vertical-align: middle;
 	box-shadow: 0px 0px 5px black;
-	border-radius: 0px 20px 20px 0px;
+	border-radius: 0px 10px 10px 0px;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
@@ -152,12 +156,10 @@ footer{
 .redondo{
 	display: table;
 	color: white;
-	border-radius: 0px 20px 20px 0px;
 	width: 100%;
 	height: 50px;
-	background: rgb(66,120,200);
-	border: solid rgb(33,64,154);
-	border-width: 1px;
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(73,180,227)), color-stop(0.5, rgb(33,64,154)), color-stop(0.51, rgb(33,64,154)), color-stop(1, rgb(73,180,227)));
+	background-image: -moz-linear-gradient(center bottom, rgb(73,180,227) 0%, rgb(33,64,154) 50%, rgb(33,64,154) 51%, rgb(73,180,227) 100%);
 	cursor: pointer;
 	transition: all 0.5s;
 }
@@ -167,7 +169,6 @@ footer{
 	text-align: center;
 	width: 100%;
 	height: 50px;
-	font-size: 36px;
 	transition: all 0.5s;
 }
 
@@ -175,6 +176,7 @@ footer{
 	display: none;
 	list-style: none;
 	transition: all 0.5s;
+	box-shadow: 0px 0px 5px black;
 }
 .redondo ul li a{
 	text-decoration: none;
@@ -182,7 +184,7 @@ footer{
 }
 
 .redondo:hover{
-	border-radius: 0px 20px 20px 0px;
+	background: rgb(73,180,227);
 	transition: all 0.5s;
 }
 
@@ -197,13 +199,13 @@ footer{
 	width: 100%;
 	cursor: pointer;
 	height: 25px;
+	background: rgb(66,120,200);
 	transition: all 0.3s;
 }
-.redondo ul li:nth-last-child(1){
-	border-radius: 0px 0px 20px 0px;
-}
+
 .redondo ul li:hover{
 	cursor: pointer;
-	background: rgb(73,180,227);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3F3F3F), color-stop(0.5, #383838), color-stop(0.51, #434343), color-stop(1, #555555));
+	background-image: -moz-linear-gradient(center bottom, #3F3F3F 0%, #383838 50%, #434343 51%, #555555 100% );
 	transition: all 0.3s;
 }

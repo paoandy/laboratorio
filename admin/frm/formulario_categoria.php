@@ -6,14 +6,15 @@
     if ($id == 0 ){
         echo "<center><h1>Usted No Puede Insertar Una Subcategoria Sin Antes Tener Al Menos Una Categoria</h1></center>";
     } else {
-       $form = new Zebra_Form('formcategoria');
+
+       $form = new Zebra_Form('frmcategoria');
 	   $form->add('label', 'nombre_categoria', 'nombrecategoria', 'Nombre categoria:');
 	      $obj = $form->add('text', 'nombrecategoria', '', array('placeholder' => 'Nombre de la Categoria'));
 	     // set rules
 		$obj->set_rule(array(
 		    'alphabet' => array(' ','error','Por Favor Solamente Letras'),
 		    'required' => array('error', 'este campo es requerido!'),
-		    'length'     =>  array(3,20,'error','El valor debe estar entre 3 y 20 caracteres'),
+		    'length'     =>  array(3,40,'error','El valor debe estar entre 3 y 20 caracteres'),
 	 ));
 
        // "descripcion"
@@ -23,15 +24,17 @@
 		   'length'    => array(0, 140, 'error', 'Maximum length is 140 characters!'),
 	 ));
 
-        $obj = $form->add('hidden', 'idcategoria', $query->siguiente('idcategoria','categoria_analisis'));
+        $obj = $form->add('hidden', 'idcategoria', $query->siguiente('idcategoria','categoria'));
 
 
-        $secciones = $query->getRows('idseccion, nombreseccion','seccion');
+        $secciones = $query->getRowsArray('idseccion, nombreseccion','seccion');
 
-        $array;
-        foreach($secciones as $key){
-            $array[$key['idseccion']] = $key['nombreseccion'];
-        }
+        $array = array();
+
+        if ( is_array( $secciones) )
+            foreach($secciones as $key){
+                $array[$key['idseccion']] = $key['nombreseccion'];
+            }
 
         $form->add('label', 'nombre_seccion', 'idseccion', 'Seccion:');
         $obj = $form->add('select', 'idseccion', '');
@@ -48,7 +51,9 @@
             $nombrecategoria = $_POST['nombrecategoria'];
             $descripcioncategoria = $_POST['descripcion'];
 
-            $query->dbInsert(array('idcategoria'=>$idcategoria,'idseccion'=>$idseccion,'nombrecategoria'=>$nombrecategoria,'descripcioncategoria'=>$descripcioncategoria), 'categoria_analisis');
+            $query->dbInsert(array('idseccion'=>$idseccion,'nombrecategoria'=>$nombrecategoria,'descripcioncategoria'=>$descripcioncategoria), 'categoria');
+
+            echo "<script>alert('Se Agrego La Categoria ');</script>";
         }
 
 

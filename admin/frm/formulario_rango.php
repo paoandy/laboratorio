@@ -1,33 +1,40 @@
 <?php
     $queryrango = new query;
-    
-    $id = $query->siguiente('idcategoria','categoria_analisis');
-    
+
+    $id = $query->siguiente('idcategoria','categoria');
+
     if ($id == 0 ){
     echo "<center><h1>Usted No Puede Insertar Un  Rango Sin Antes Tener Al Menos Una Subcategoria </h1></center>";
     } else {
-       $form = new Zebra_Form('formrango');
-	   $form->add('label', 'rango_minimo', 'minimo', 'Valor Minimo:');
+
+       $form = new Zebra_Form('frmrango');
+
+       $form->add('label', 'etiqueta_rango', 'etiqueta', 'Etiqueta:');
+	      $obj = $form->add('text', 'etiqueta', '', array('placeholder' => 'Etiqueta del rango'));
+	     // set rules
+		$obj->set_rule(array(
+		    'required' => array('error', 'este campo es requerido!'),
+		    'length'   =>  array(1,60,'error','El valor debe estar entre 1 y 60 caracteres'),
+	 ));
+
+        $form->add('label', 'descripcion_rango', 'descripcion', 'Descripcion:');
+	      $obj = $form->add('textarea', 'descripcion', '', array('placeholder' => 'Etiqueta del rango'));
+	     // set rules
+		$obj->set_rule(array(
+		    'length'   =>  array(0,140,'error','El valor debe estar entre 0 y 140 caracteres')
+	 ));
+
+	$form->add('label', 'rango_minimo', 'minimo', 'Valor Minimo:');
 	      $obj = $form->add('text', 'minimo', '', array('placeholder' => 'Valor Minimo'));
 	     // set rules
-		$obj->set_rule(array(
-		    'required' => array('error', 'este campo es requerido!'),
-		    'length'     =>  array(1,7,'error','El valor debe estar entre 1 y 7 caracteres'),
-	 ));
-	$form->add('label', 'rango_maximo', 'maximo', 'Valor Maximo:');
+		//$obj->set_rule(array( 'required' => array('error', 'este campo es requerido!') ));
+
+        $form->add('label', 'rango_maximo', 'maximo', 'Valor Maximo:');
 	      $obj = $form->add('text', 'maximo', '', array('placeholder' => 'Valor Maximo'));
 	     // set rules
-		$obj->set_rule(array(
-		    'required' => array('error', 'este campo es requerido!'),
-		    'length'     =>  array(1,7,'error','El valor debe estar entre 1 y 7 caracteres'),
-	 ));
-	$form->add('label', 'sexo_paciente', 'sexo', 'Sexo del Paciente:');
-	      $obj = $form->add('text', 'sexo', '', array('placeholder' => 'Sexo del paciente'));
-	     // set rules
-		$obj->set_rule(array(
-		    'required' => array('error', 'este campo es requerido!'),
-		    'length'     =>  array(1,7,'error','El valor debe estar entre 1 y 7 caracteres'),
-	 ));
+		//$obj->set_rule(array( 'required' => array('error', 'este campo es requerido!')));
+
+
 	$form->add('label', 'unidad_rango', 'unidad', 'Unidades:');
 	      $obj = $form->add('text', 'unidad', '', array('placeholder' => 'Unidad del rango'));
 	     // set rules
@@ -35,13 +42,13 @@
 		    'required' => array('error', 'este campo es requerido!'),
 		    'length'     =>  array(1,5,'error','El valor debe estar entre 1 y 5caracteres'),
 	 ));
-                
-        
+
+
         $obj = $form->add('hidden', 'idrango', $query->siguiente('idrango','rango'));
-        
-        
-        $categorias= $query->getRows('idcategoria, nombrecategoria','categoria_analisis');
-        
+
+
+        $categorias= $query->getRowsArray('idcategoria, nombrecategoria','categoria');
+
         $array;
         foreach($categorias as $key){
             $array[$key['idcategoria']] = $key['nombrecategoria'];
@@ -51,21 +58,32 @@
         $obj = $form->add('select', 'idcategoria', '');
         $obj->add_options($array);
         $obj->set_rule(array( 'required' => array('error', 'Categoria  es un campo requerido!') ));
-      
+
         // "submit"
          $form->add('submit', 'btnsubmit', 'Agregar');
-        
-        
+
+
         if ($form->validate()) {
             $idrango = $_POST['idrango'];
             $idcategoria= $_POST['idcategoria'];
             $minimo = $_POST['minimo'];
             $maximo= $_POST['maximo'];
-            $sexo= $_POST['sexo'];
+            $descripcion= $_POST['descripcion'];
+            $etiqueta = $_POST['etiqueta'];
 	    $unidad= $_POST['unidad'];
-	    
-            $query->dbInsert(array('idrango'=>$idrango,'idcategoria'=>$idcategoria,'minimo'=>$minimo,'maximo'=>$maximo,'sexo'=>$sexo,'unidad'=>$unidad), 'rango');
-        } 
+
+            if ( !isset($minimo) ){
+                $minimo = 'NULL';
+            }
+
+            if ( !isset($maximo) ){
+                $maximo = 'NULL';
+            }
+
+            $query->dbInsert(array('idcategoria'=>$idcategoria, 'nombre'=>$etiqueta ,'descripcion'=>$descripcion,'minimo'=>$minimo,'maximo'=>$maximo,'unidad'=>$unidad), 'rango');
+
+            echo "<script>alert('Se Agrego El Rango Para: ".$etiqueta."');</script>";
+        }
         $form->render('*horizontal');
     }
 ?>

@@ -49,9 +49,6 @@ class query
 		$row = array();
 		$query = $this->makequery($sql2);
 
-		//while($temp = mysql_fetch_assoc($query))
-		//	$row[$id] = $temp;
-		//return $row;
                 return $query;
 	}
 
