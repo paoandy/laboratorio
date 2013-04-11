@@ -19,6 +19,9 @@
 		 case 1:
                     header("Location:secre/");
                     break;
+		case 2:
+                    header("Location:tecnico/");
+                    break;
                 default:
                     echo "<span class='error'>Ocurrio Un Error al iniciar Sesion, Usted no tiene un tipo de usuario asignado</span>";
             }

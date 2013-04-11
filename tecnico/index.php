@@ -4,7 +4,7 @@
     if (!isset($_SESSION['tipousuario']))
         header("Location:../index.php");
 
-    if ( $_SESSION['tipousuario']!=1 )
+    if ( $_SESSION['tipousuario']!=2)
         header("Location:../index.php?msj='Usted No Tiene Privilegios Para Ver Este Sitio'");
 ?>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
         <section id="main">
             <section id="contenido">
                 <section>
-                    Bienvenido Secretaria
+                    Bienvenido tecnico
                 </section>
             </section>
             <section id="opciones">
