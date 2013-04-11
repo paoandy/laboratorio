@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     11/04/2013 04:53:33 p.m.                     */
+/* Created on:     11/04/2013 06:46:13 p.m.                     */
 /*==============================================================*/
 
 
@@ -44,7 +44,7 @@ create table CATEGORIA
 create table COSTO
 (
    IDCOBRO              int(8) not null auto_increment,
-   IDORDEN              int,
+   IDORDEN              int not null,
    FECHA                datetime not null,
    CANTIDAD             float not null,
    DESCRIPCION          varchar(1024),
@@ -85,6 +85,7 @@ create table ORDEN
    IDORDEN              int(8) not null auto_increment,
    IDUSUARIO            int not null,
    IDMEDICO             int not null,
+   IDPACIENTE           int not null,
    FECHAPEDIDO          datetime not null,
    DESCRIPCIONORDEN     varchar(1024),
    MATERIAL             varchar(255),
@@ -99,7 +100,6 @@ create table ORDEN
 create table PACIENTE
 (
    IDPACIENTE           int(8) not null auto_increment,
-   IDORDEN              int,
    NOMBRE               varchar(50) not null,
    EDAD                 int not null,
    SEXO                 varchar(1) not null,
@@ -180,7 +180,7 @@ create table USUARIO
 alter table CATEGORIA add constraint FK_SECCION_CATEGORIA foreign key (IDSECCION)
       references SECCION (IDSECCION) on delete restrict on update restrict;
 
-alter table COSTO add constraint FK_RELATIONSHIP_10 foreign key (IDORDEN)
+alter table COSTO add constraint FK_ORDEN_COSTO foreign key (IDORDEN)
       references ORDEN (IDORDEN) on delete restrict on update restrict;
 
 alter table INSUMO add constraint FK_INSUMO_PROVEEDOR foreign key (IDPROVEEDOR)
@@ -192,11 +192,11 @@ alter table INSUMO add constraint FK_ORDEN_INSUMO foreign key (IDORDEN)
 alter table ORDEN add constraint FK_MEDICO_ORDEN foreign key (IDMEDICO)
       references MEDICO (IDMEDICO) on delete restrict on update restrict;
 
+alter table ORDEN add constraint FK_ORDEN_PACIENTE foreign key (IDPACIENTE)
+      references PACIENTE (IDPACIENTE) on delete restrict on update restrict;
+
 alter table ORDEN add constraint FK_USUARIO_ORDEN foreign key (IDUSUARIO)
       references USUARIO (IDUSUARIO) on delete restrict on update restrict;
-
-alter table PACIENTE add constraint FK_RELATIONSHIP_9 foreign key (IDORDEN)
-      references ORDEN (IDORDEN) on delete restrict on update restrict;
 
 alter table RANGO add constraint FK_RANGO_CATEGORIA foreign key (IDCATEGORIA)
       references CATEGORIA (IDCATEGORIA) on delete restrict on update restrict;
