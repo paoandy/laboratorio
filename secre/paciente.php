@@ -13,14 +13,19 @@
     <?php include 'lib/includeHead.php'?>
 </head>
 <body>
+    <div id="backgroundFix"></div>
     <div id="page">
         <header>
             <section>
-                <span><img src="../images/laboratorio.png"/>HEMOLAB</span>
+                <center>
+                    <span>
+                        <img src="../images/logo.png"/>HEMOLAB
+                    </span>
+                </center>
+                <nav>
+                    <?php include 'tpl/menu.php';?>
+                </nav>
             </section>
-            <nav>
-                [menu]
-            </nav>
         </header>
         <section id="main">
             <section id="contenido">
@@ -29,23 +34,11 @@
                 </section>
             </section>
             <section id="opciones">
-                <nav>
-                    <ul>
-                        <li><a href="../logout.php">Desconectarse</a></li>
-                        <li><a href="#">Registrar</a>
-                        <ul>
-                        <li><a href="medico.php">Medico</a></li>
-                        <li><a href="">Cobro </a></li>
-                        <li><a href="">Entrega Resultados</a></li>
-                        </ul>
-                        <li><a href="#">Ver Reservas</a></li> 
-                    </ul>
-                </nav>
+                <?php include 'tpl/opciones.php';?>
             </section>
         </section>
         <footer>
-            Laboratorio de Analisis Clinico HEMOLAB
-            
+            <?php include 'tpl/footer.php';?>
         </footer>
     </div>
 </body>
