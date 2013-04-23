@@ -18,7 +18,7 @@
 		    // set rules
 		    $obj->set_rule(array(
 			'required'  =>  array('error', 'Email es requiredo!'),
-			'email'     =>  array('error', 'el email es valido!'),
+			'email'     =>  array('error', 'el email no es valido!'),
 		
 		    ));
 
@@ -28,7 +28,7 @@
 	       // set rules
 		$obj->set_rule(array(
 		     'required' => array('error', 'este campo es requerido!'),
-		     'length'     =>  array(1,8,'error','El valor debe estar entre 1 y 8digitos'),
+		     'length'     =>  array(7,7,'error','El valor debe estar tener 7 digitos'),
 	   ));
         
         $obj = $form->add('hidden', 'idmedico', $querymedico->siguiente('idmedico','medico'));

@@ -6,10 +6,18 @@
 </nav>
 
 <nav class="redondo">
-    <span>Admin</span>
+    <span>Registrar</span>
     <ul>
-        <li><a href="analisis.php">Ingresar Analisis</a></li>
-        <li><a href="#">Ingresar Usuario</a></li>
+        <li><a href="analisis.php">Analisis</a></li>
+        <li><a href="#">Usuario</a></li>
+    </ul>
+</nav>
+
+<nav class="redondo">
+    <span>Administrar</span>
+    <ul>
+        <li><a href="admin.php?accion=analisis">Analisis</a></li>
+        <li><a href="admin.php?accion=usuario">Usuario</a></li>
     </ul>
 </nav>
 

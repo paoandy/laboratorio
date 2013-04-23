@@ -1,0 +1,27 @@
+.tabla {
+	display: table;
+	width: 98%;
+	margin: 10px auto;
+	border: solid 1px;
+}
+.fila {
+	display: table-row;
+	background: white;
+}
+.celda {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: black;
+}
+.celda:not(:last-child){
+	border-right: solid 1px black;
+}
+.fila:nth-child(2n-1){
+	background: lightgrey;
+}
+.titulo {
+	background: rgb(55, 122, 188);
+	color: white;
+	font-size: 18px;
+}

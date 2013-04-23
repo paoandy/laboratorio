@@ -43,6 +43,7 @@
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
+    <div id="backgroundFix"></div>
     <section class="login">
         <section>
             <span><img src="images/logo.png">HEMOLAB</span>

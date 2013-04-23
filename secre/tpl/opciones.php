@@ -6,7 +6,7 @@
 </nav>
 
 <nav class="redondo">
-    <span>Recepcion</span>
+    <span>Registro</span>
     <ul>
         <li><a href="paciente.php">Paciente </a></li>
         <li><a href="medico.php">Medico </a></li>
@@ -18,7 +18,7 @@
 <nav class="redondo">
     <span>Reservas</span>
     <ul>
-        <li><a href="#">Ver Reservas</a></li> 
+        <li><a href="#">Ver Reservas</a></li>
     </ul>
 </nav>
 
