@@ -9,7 +9,7 @@
     <span>Registrar</span>
     <ul>
         <li><a href="analisis.php">Analisis</a></li>
-        <li><a href="#">Usuario</a></li>
+        <li><a href="usuario.php">Usuario</a></li>
     </ul>
 </nav>
 
@@ -17,7 +17,7 @@
     <span>Administrar</span>
     <ul>
         <li><a href="admin.php?accion=analisis">Analisis</a></li>
-        <li><a href="admin.php?accion=usuario">Usuario</a></li>
+        <li><a href="usua.php?accion=usuario">Usuario</a></li>
     </ul>
 </nav>
 
