@@ -35,7 +35,7 @@
                 <section>
                     <?php
                         $accion = $_GET['accion'];
-                        include 'tpl/tabla1.php';
+                        include 'tpl/tabla.php';
                     ?>
                 </section>
             </section>

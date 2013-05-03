@@ -220,3 +220,45 @@ footer{
 	background-image: -moz-linear-gradient(center bottom, #3F3F3F 0%, #383838 50%, #434343 51%, #555555 100% );
 	transition: all 0.3s;
 }
+/*
+ * Tabla Servicios
+ */
+.servicio {
+	float: left;
+	margin: 10px;
+	text-align: left;
+	min-height: 100px;
+	padding: 15px;
+	background: rgb(240,240,240);
+	box-shadow: 0px 0px 2px black;
+}
+
+.servicio:nth-child(2n) {
+	background: rgb(200,200,200);
+}
+
+.servicio ul {
+	list-style: none;
+	display: table;
+}
+.servicio li {
+	display: table-row;
+	vertical-align: middle
+}
+.servicio li input {
+	display: table-cell;
+	vertical-align: middle;
+}
+.servicio li input[type=text] {
+	width: 25px;
+	margin: 0 5px;
+}
+.servicio li input[type=checkbox] {
+	margin-bottom: 5px;
+	margin-right: 2px;
+}
+.servicio li span{
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0 2px 0 2px;
+}

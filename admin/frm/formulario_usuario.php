@@ -25,17 +25,17 @@
 	      $obj->set_rule(array(
 		   'digits' => array('8','error','Por Favor Solamente digitos'),
 		   'required' => array('error', 'este campo es requerido!'),
-		   'length'     =>  array(8,8,'error','El valor debe ser al menos 8 digitos'),
+		   'length'     =>  array(7,7,'error','El valor debe ser al menos 7 digitos'),
 	 ));
-     //telefono del usuario      
+     //telefono del usuario
        $form->add('label', 'telefono_usuario', 'telefono', 'Telefono Usuario:');
 	     $obj = $form->add('text', 'telefono', '', array('placeholder' => 'Telefono del Usuario'));
 	     // set rules
 	      $obj->set_rule(array(
 		   'required' => array('error', 'este campo es requerido!'),
-		   'length'     =>  array(8,8,'error','El valor debe ser 8 digitos'),
+		   'length'     =>  array(7,7,'error','El valor debe ser 7 digitos'),
 	 ));
-     //	Login Usuario      
+     //	Login Usuario
        $form->add('label', 'login_usuario', 'login', 'Login Usuario:');
 	     $obj = $form->add('text', 'login', '', array('placeholder' => 'Login Usuario'));
 	     // set rules
@@ -43,21 +43,22 @@
 		   'required' => array('error', 'este campo es requerido!'),
 		   'length'     =>  array(5,10,'error','El valor debe estar entre 5 y 10 digitos'),
 	 ));
-     //	password Usuario     
+     //	password Usuario
        $form->add('label', 'label_password', 'password', 'Password');
 	     $obj = $form->add('password', 'password', '', array('autocomplete' => 'off','placeholder' => 'password'));
 	       $obj->set_rule(array(
 		   'required'  => array('error', 'Password is requiredo!'),
 		   'length'    => array(6, 10, 'error', 'The password must have between 6 and 10 characters!'),
 	 ));
-      // tipo Usuario    
+      // tipo Usuario
        $form->add('label', 'tipo_usuario', 'tipousuario', 'Tipo Usuario:');
-	     $obj = $form->add('text', 'tipousuario', '', array('placeholder' => 'Tipo Usuario'));
+	     $obj = $form->add('select', 'tipousuario', '');
+             $obj->add_options( array('0'=>'Administrador', '1'=>'Secretaria', '2'=>'Tecnico') );
 	     // set rules
 	      $obj->set_rule(array(
 		   'required' => array('error', 'este campo es requerido!'),
 	 ));
-     
+
      $obj = $form->add('hidden', 'idusuario', $query->siguiente('idusuario','usuario') );
     // "submit"
      $form->add('submit', 'btnsubmit', 'Agregar');
@@ -71,10 +72,10 @@
 	     $login = $_POST['login'];
 	     $password= $_POST['password'];
 	     $tipousuario = $_POST['tipousuario'];
-             $query->dbInsert(array('idusuario'=>$idusuario,'nombre'=>$nombre,'apellido'=>$apellido,'ci'=>$ci,'telefono'=>$telefono,'login'=>$login,'password'=>$password,'tipousuario'=>$tipousuario), 'usuario');
+             $query->dbInsert(array('nombre'=>$nombre,'apellido'=>$apellido,'ci'=>$ci,'telefono'=>$telefono,'login'=>$login,'password'=>$password,'tipousuario'=>$tipousuario), 'usuario');
 
       echo "<script>alert('Se Agrego un nuevo usuario');</script>";
-    } 
+    }
         // generate output using a custom template
         $form->render('*horizontal');
 

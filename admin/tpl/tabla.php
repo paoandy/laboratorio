@@ -9,6 +9,14 @@
             $titulos = array('ID', 'Nombre', 'Operaciones');
             $filas = $query->getRowsArray('*','SECCION');
             break;
+        case 'paciente':
+            $titulos = array('ID', 'Nombre', 'Edad', 'Telefono', 'Operaciones' );
+            $filas = $query->getRowsArray('IDPACIENTE, NOMBRE, EDAD, TELEFONO','PACIENTE');
+            break;
+        case 'usuarios':
+            $titulos = array('ID', 'Nombre','Apellido','DNI','Telefono','Login', 'Operaciones');
+            $filas = $query->getRowsArray('IDUSUARIO, NOMBRE,APELLIDO,CI,TELEFONO,LOGIN','USUARIO');
+            break;
     }
     //print_r($filas);
 ?>

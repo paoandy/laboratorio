@@ -2,13 +2,14 @@
     $query = new query;
 
     $pacientes = $query->getRowsArray('IDPACIENTE, NOMBRE', 'PACIENTE');
-    print_r($pacientes);
+    //print_r($pacientes);
     $medicos = $query->getRowsArray('*', 'MEDICO');
     $secciones = $query->getRowsArray('*', 'SECCION');
 
-    $seccion = $query->getRowsArray('*','seccion, categoria', 'WHERE seccion.idseccion = categoria.idseccion ORDER BY seccion.nombreseccion, categoria.nombrecategoria');
+    //$secciones = $query->getRowsArray('*','seccion, categoria', 'WHERE seccion.idseccion = categoria.idseccion ORDER BY seccion.nombreseccion, categoria.nombrecategoria');
+    $secciones = $query->getRowsArray('*','seccion', 'ORDER BY seccion.nombreseccion');
 
-    //print_r($_POST);
+    print_r($_POST);
 ?>
 <form action="registrarorden.php" method="post">
     <fieldset>
@@ -25,24 +26,107 @@
             Descripcion:<br/><textarea name="DESCRIPCION" type="text" placeholder="Descripcion/Otros/Observaciones"></textarea>
 
             <fieldset style="margin:20px; padding:20px;">
-            <legend>Analisis</legend>
+            <legend>Analisis Disponibles</legend>
             <?php
-
-                foreach($secciones as $seccion){
-                    echo "<fieldset style='float:left; width:auto; text-align:left; padding:20px; margin:10px;'>";
-                    echo "<legend>".$seccion['NOMBRESECCION']."</legend>";
-                    $categorias = $query->getRowsArray('*', 'CATEGORIA','WHERE IDSECCION='.$seccion['IDSECCION']);
-
-                    echo "<ul style='list-style:none;'>";
-
-                    foreach($categorias as $categoria){
-                        echo "<li><input type='checkbox' name='categoria[]' value='".$categoria['IDCATEGORIA']."'/>".$categoria['NOMBRECATEGORIA']."</li>";
+                    foreach ($secciones as $seccion) {
+                        echo "<div class='servicio'>";
+                        echo "<h1>+ ".$seccion['NOMBRESECCION']."</h1>";
+                        echo "<ul>";
+                            $subcategorias = $query->getRowsArray('*','CATEGORIA','WHERE IDSECCION ='.$seccion['IDSECCION']);
+                            foreach($subcategorias as $subcategoria){
+                                echo "<li><input class='check' type='checkbox' name='realizar[".$subcategoria['IDCATEGORIA']."]' value='".$subcategoria['CODIGO']."' data-codigo='".$subcategoria['IDCATEGORIA']."'/><span>".$subcategoria['NOMBRECATEGORIA']." : </span>".
+                                    "<input class='costo' type='text' name='costo[".$subcategoria['IDCATEGORIA']."]' value='".$subcategoria['COSTO']."' data-codigo='".$subcategoria['IDCATEGORIA']."' disabled/><span>Bs.</span></li>";
+                            }
+                        echo "</ul>";
+                        echo "</div>";
                     }
-                    echo "</ul>";
-                    echo "</fieldset>";
-                }
             ?>
         </fieldset>
+            <script>
+                            $(document).ready(function(){
+                                $(".check").each(function() {
+                                    $(this).change(function( event ){
+                                        var id = $(this).attr('data-codigo');
+                                        if ($(this).is(':checked')){
+                                            $('.costo[data-codigo='+id+']').removeAttr('disabled');
+                                            var total = parseFloat( $("#total").val() ) + parseFloat( $('.costo[data-codigo='+id+']').val() );
+                                            $('#total').val(total);
+                                        } else {
+                                            $('.costo[data-codigo='+id+']').attr('disabled', true);
+                                            var total = parseFloat( $("#total").val() ) - parseFloat( $('.costo[data-codigo='+id+']').val() );
+                                            $('#total').val(total);
+                                        }
+                                        event.stopPropagation();
+                                    });
+                                    //$(this).attr("src", $(this).attr("data-original"));
+                                    //$(this).removeAttr("data-original");
+                                });
+
+                                //TODO: When trying to to add and modify values using keydown, keyup values
+                                // and pressing rapidly keys there is no sync between keydown and keyup event
+                                // this situation appears to be under control, but it is not fully tested
+                                // Recheck if issues when adding, Alternative case would be to place a
+                                // 'Calcular' button to calculate when press all enable text-inputs and sum
+                                // This module needs to be rechecked to validate all scenarios
+                                $(".costo").each(function() {
+
+                                    $(this).blur(function(){
+                                        if ( !$(this).val() )
+                                            $(this).val(0);
+                                    });
+
+                                    var prevValue;
+
+                                    var processing = false; // TODO: Check this variable funcionality
+
+                                    $(this).keydown(function(event){
+                                        if (processing){
+                                            event.preventDefault();
+                                            return;
+                                        }
+
+                                        if(event.shiftKey)
+                                            event.preventDefault();
+                                        if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 190) {
+                                         // Allow all decimal numbers from 0 to 9 with dot(.)
+                                        } else {
+                                            if (event.keyCode < 95) {
+                                                if (event.keyCode < 48 || event.keyCode > 57) {
+                                                    event.preventDefault();
+                                                }
+                                            } else {
+                                                if (event.keyCode < 96 || event.keyCode > 105) {
+                                                    event.preventDefault();
+                                                }
+                                            }
+                                        }
+
+                                        if (!processing){
+                                            prevValue = parseFloat( $(this).val() ? $(this).val() : 0 );
+                                            processing = true;
+                                        }
+                                    });
+
+                                    $(this).keyup(function(event){
+                                        if (!processing){
+                                            event.preventDefault();
+                                            return;
+                                        }
+
+                                        var costo = parseFloat( $(this).val() ? $(this).val() : 0 );
+                                        //console.log("Total: " + parseFloat( $("#total").val() ) + " Sin Parser:" + $("#total").val() + " costo: " + costo + " previous:" + prevValue );
+                                        var total = parseFloat( $("#total").val() ) + costo - prevValue;
+
+                                        $('#total').val(total);
+
+                                        processing = false;
+                                    });
+                                });
+                            });
+                        </script>
+                        <center>
+                            Total:<input style="text-align: right;" id="total" type="text" id="totalServicio" value="0" disabled/>Bs.
+                        </center>
         </fieldset>
         <input type="submit" value="Registrar Orden"/>
     </fieldset>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2013 at 10:50 PM
+-- Generation Time: May 03, 2013 at 04:10 PM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `CATEGORIA` (
   `IDCATEGORIA` int(8) NOT NULL AUTO_INCREMENT,
   `IDSECCION` int(11) NOT NULL,
   `NOMBRECATEGORIA` varchar(50) NOT NULL,
+  `COSTO` float NOT NULL,
   `DESCRIPCIONCATEGORIA` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`IDCATEGORIA`),
   KEY `FK_SECCION_CATEGORIA` (`IDSECCION`)
@@ -38,11 +39,11 @@ CREATE TABLE IF NOT EXISTS `CATEGORIA` (
 -- Dumping data for table `CATEGORIA`
 --
 
-INSERT INTO `CATEGORIA` (`IDCATEGORIA`, `IDSECCION`, `NOMBRECATEGORIA`, `DESCRIPCIONCATEGORIA`) VALUES
-(1, 1, 'Glicemia', ''),
-(2, 1, 'Hemoglobina Glicosilada', 'Consta del conteo de globulos rojos'),
-(3, 2, 'Colesterol', 'Analisis del porcentaje de colesterol en sangre'),
-(4, 3, 'Fosfata Alcalina', 'Analisis del porcentaje de fosfato en sangre');
+INSERT INTO `CATEGORIA` (`IDCATEGORIA`, `IDSECCION`, `NOMBRECATEGORIA`, `COSTO`, `DESCRIPCIONCATEGORIA`) VALUES
+(1, 1, 'Glicemia', 30, ''),
+(2, 1, 'Hemoglobina Glicosilada', 10, 'Consta del conteo de globulos rojos'),
+(3, 2, 'Colesterol', 50, 'Analisis del porcentaje de colesterol en sangre'),
+(4, 3, 'Fosfata Alcalina', 25, 'Analisis del porcentaje de fosfato en sangre');
 
 -- --------------------------------------------------------
 
@@ -100,12 +101,14 @@ CREATE TABLE IF NOT EXISTS `MEDICO` (
   `EMAIL` varchar(50) DEFAULT NULL,
   `TELEFONO` varchar(1024) NOT NULL,
   PRIMARY KEY (`IDMEDICO`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `MEDICO`
 --
 
+INSERT INTO `MEDICO` (`IDMEDICO`, `NOMBRE`, `EMAIL`, `TELEFONO`) VALUES
+(1, 'Juan Perez', 'prueba@prueba.com', '4123456');
 
 -- --------------------------------------------------------
 
@@ -148,12 +151,14 @@ CREATE TABLE IF NOT EXISTS `PACIENTE` (
   `TELEFONO` varchar(1024) NOT NULL,
   `DESCRIPCION` varchar(1024) NOT NULL,
   PRIMARY KEY (`IDPACIENTE`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `PACIENTE`
 --
 
+INSERT INTO `PACIENTE` (`IDPACIENTE`, `NOMBRE`, `EDAD`, `SEXO`, `TELEFONO`, `DESCRIPCION`) VALUES
+(1, 'Maria Solares', 15, 'M', '1', '');
 
 -- --------------------------------------------------------
 
@@ -266,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `USUARIO` (
   `PASSWORD` varchar(50) NOT NULL,
   `TIPOUSUARIO` int(11) NOT NULL,
   PRIMARY KEY (`IDUSUARIO`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `USUARIO`
@@ -275,6 +280,7 @@ CREATE TABLE IF NOT EXISTS `USUARIO` (
 INSERT INTO `USUARIO` (`IDUSUARIO`, `NOMBRE`, `APELLIDO`, `CI`, `TELEFONO`, `LOGIN`, `PASSWORD`, `TIPOUSUARIO`) VALUES
 (1, 'diego', 'landa', 4529947, '4281228', 'diego', '.diego', 0),
 (2, 'Administrador', 'Administrador', 1234567, '', 'admin', '.admin', 0),
-(3, '', '', 0, '', 'secretaria', '.secretaria', 1),
+(3, '', '', 0, '', 'secretaria1', '.secretaria1', 1),
 (4, 'Secretaria', 'Secretaria', 1234567, '4281228', 'secretaria', '.secretaria', 1),
-(5, 'tecnico', 'tecnico', 1234567, '4281228', 'tecnico', '.tecnico', 2);
+(5, 'tecnico', 'tecnico', 1234567, '4281228', 'tecnico', '.tecnico', 2),
+(6, 'Prueba', 'Prueba', 1234567, '4123456', 'prueba', '.prueba', 0);
