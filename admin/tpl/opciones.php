@@ -10,6 +10,8 @@
     <ul>
         <li><a href="analisis.php">Analisis</a></li>
         <li><a href="usuario.php">Usuario</a></li>
+        <li><a href="proveedor.php">Proveedor</a></li>
+
     </ul>
 </nav>
 

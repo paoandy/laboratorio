@@ -8,7 +8,7 @@
     } else {
 
        $form = new Zebra_Form('frmcategoria');
-	   $form->add('label', 'nombre_categoria', 'nombrecategoria', 'Nombre categoria:');
+	   $form->add('label', 'nombre_categoria', 'nombrecategoria', 'Nombre:');
 	      $obj = $form->add('text', 'nombrecategoria', '', array('placeholder' => 'Nombre de la Categoria'));
 	     // set rules
 		$obj->set_rule(array(
