@@ -43,7 +43,7 @@
 	    $email = $_POST['email'];
 	    $telefono = $_POST['telefono'];
 
-            $querymedico->dbInsert(array('idmedico'=>$idmedico,'nombre'=>$nombre,'email'=>$email,'telefono'=>$telefono),'medico');
+            $querymedico->dbInsert(array('nombre'=>$nombre,'email'=>$email,'telefono'=>$telefono),'medico');
         } 
         $form->render('*horizontal');
 ?>

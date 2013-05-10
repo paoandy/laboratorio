@@ -15,15 +15,15 @@
     <fieldset>
         <fieldset style="margin:20px; padding:20px;">
             <legend>Datos Paciente</legend>
-            Paciente: <select name="IDPACIENTE"><?php crearLista($pacientes, 'IDPACIENTE', 'NOMBRE'); ?></select>
-            Medico: <select name="IDMEDICO"><?php crearLista($medicos, 'IDMEDICO', 'NOMBRE'); ?></select>
+            Paciente: <select id="selectPaciente" style="width:250px;" name="IDPACIENTE"><?php crearLista($pacientes, 'IDPACIENTE', 'NOMBRE'); ?></select>
+            Medico: <select id="selectMedico" style="width:250px;" name="IDMEDICO"><?php crearLista($medicos, 'IDMEDICO', 'NOMBRE'); ?></select>
             <input type="hidden" name="IDUSUARIO" value="<?php echo $_SESSION['idusuario'];?>" />
         </fieldset>
         <fieldset style="margin:20px; padding:20px; text-align: left; background: linear-gradient( 180deg, rgb(245,245,245) 25%, rgb(225,225,225), rgb(245,245,245) 75% ); border-radius:10px;">
             <legend>Datos Generales</legend>
-            Registrado Por: <?php echo $_SESSION['login']; ?><br/>
-            Fecha: <?php echo date('d/m/Y'); ?><br/>
-            Descripcion:<br/><textarea name="DESCRIPCION" type="text" placeholder="Descripcion/Otros/Observaciones"></textarea>
+            <strong>Registrado Por:</strong> <?php echo $_SESSION['login']; ?><br/>
+            <strong>Fecha: </strong><?php echo date('d/m/Y'); ?><br/>
+            <strong>Descripcion:</strong><br/><textarea name="DESCRIPCION" style="width:100%;" placeholder="Descripcion/Otros/Observaciones"></textarea>
 
             <fieldset style="margin:20px; padding:20px;">
             <legend>Analisis Disponibles</legend>
@@ -56,6 +56,7 @@
                                             var total = parseFloat( $("#total").val() ) - parseFloat( $('.costo[data-codigo='+id+']').val() );
                                             $('#total').val(total);
                                         }
+										$('#costoTotal').val(total);
                                         event.stopPropagation();
                                     });
                                     //$(this).attr("src", $(this).attr("data-original"));
@@ -118,6 +119,7 @@
                                         var total = parseFloat( $("#total").val() ) + costo - prevValue;
 
                                         $('#total').val(total);
+										$('#costoTotal').val(total);
 
                                         processing = false;
                                     });
@@ -125,7 +127,8 @@
                             });
                         </script>
                         <center>
-                            Total:<input style="text-align: right;" id="total" type="text" id="totalServicio" value="0" disabled/>Bs.
+                        	<input style="text-align: right;" id="costoTotal" type="hidden" name="total" id="total" value="0"/>
+                            Total:<input style="text-align: right;" id="total" type="text" value="0" disabled/>Bs.
                         </center>
         </fieldset>
         <input type="submit" value="Registrar Orden"/>
@@ -140,3 +143,6 @@
         echo $resultado;
     }
 ?>
+<script>
+	$(document).ready(function() { $("#selectPaciente").select2(); $("#selectMedico").select2(); });
+</script>

@@ -56,7 +56,7 @@
 	       $telefono = $_POST['telefono'];
 	       $descripcion = $_POST['descripcion'];
 	       
-                $query->dbInsert(array('idpaciente'=>$idpaciente,'nombre'=>$nombre,'edad'=>$edad,'sexo'=>$sexo,'telefono'=>$telefono,'descripcion'=>$descripcion),'paciente');
+                $query->dbInsert(array('nombre'=>$nombre,'edad'=>$edad,'sexo'=>$sexo,'telefono'=>$telefono,'descripcion'=>$descripcion),'paciente');
 	  } 
 	  // generate output using a custom template
 	  $form->render('*horizontal');
