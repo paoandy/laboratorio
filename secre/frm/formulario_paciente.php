@@ -1,6 +1,4 @@
- <fieldset>
-<legend>Paciente</legend> 
-   <?php
+<?php
    $query = new query;
 	 $form = new Zebra_Form('formPaciente');
 	     $form->add('label', 'nombre_paciente', 'nombre', 'Nombre Paciente:');
@@ -22,7 +20,8 @@
 	   ));
        //	sexo del paciente      
 	 $form->add('label', 'sexo_paciente', 'sexo', 'Sexo Paciente:');
-	       $obj = $form->add('text', 'sexo', '', array('placeholder' => 'Sexo del Paciente'));
+	       $obj = $form->add('select', 'sexo', '');
+		   $obj->add_options( array('F'=>'Femenino', 'M'=>'Masculino') );
 	       // set rules
 		$obj->set_rule(array(
 		     'required' => array('error', 'este campo es requerido!'),
@@ -50,15 +49,18 @@
 	  if ($form->validate()) {
 	  // show result
 	       $idpaciente = $_POST['idpaciente'];
-               $nombre = $_POST['nombre'];
-               $edad = $_POST['edad'];
+           $nombre = $_POST['nombre'];
+           $edad = $_POST['edad'];
 	       $sexo = $_POST['sexo'];
 	       $telefono = $_POST['telefono'];
 	       $descripcion = $_POST['descripcion'];
 	       
-                $query->dbInsert(array('nombre'=>$nombre,'edad'=>$edad,'sexo'=>$sexo,'telefono'=>$telefono,'descripcion'=>$descripcion),'paciente');
+			$query->dbInsert(array('nombre'=>$nombre,'edad'=>$edad,'sexo'=>$sexo,'telefono'=>$telefono,'descripcion'=>$descripcion),'paciente');
+			
+			echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>El Paciente Se Registro Satisfactoriamente.',  showCloseButton: true }); }); </script>";
+			
+			$form->reset();
 	  } 
 	  // generate output using a custom template
 	  $form->render('*horizontal');
-  ?>
-</fieldset>
+?>

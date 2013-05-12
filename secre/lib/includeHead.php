@@ -14,3 +14,6 @@
     <link rel="stylesheet" type="text/css" href="../style/appleMenu/css/style.css"/>
 	<link rel="shortcut icon" href="../favicon.ico" />
 
+	<link rel="stylesheet" href="../scripts/messenger/css/messenger.css">
+    <link rel="stylesheet" href="../scripts/messenger/css/messenger-theme-future.css">
+    <script src="../scripts/messenger/js/messenger.min.js"></script>

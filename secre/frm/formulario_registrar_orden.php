@@ -12,7 +12,8 @@
     print_r($_POST);
 ?>
 <form action="registrarorden.php" method="post">
-    <fieldset>
+    <fieldset style="box-shadow:inset 0px 0px 10px rgb(225,225,225);">
+    	<center><h1 style="padding:20px;">Registrar Orden</h1></center>
         <fieldset style="margin:20px; padding:20px;">
             <legend>Datos Paciente</legend>
             Paciente: <select id="selectPaciente" style="width:250px;" name="IDPACIENTE"><?php crearLista($pacientes, 'IDPACIENTE', 'NOMBRE'); ?></select>
@@ -131,7 +132,7 @@
                             Total:<input style="text-align: right;" id="total" type="text" value="0" disabled/>Bs.
                         </center>
         </fieldset>
-        <input type="submit" value="Registrar Orden"/>
+        <input type="submit" value="Registrar Orden" style="margin:20px;"/>
     </fieldset>
 </form>
 <?php

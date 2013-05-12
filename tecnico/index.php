@@ -13,6 +13,11 @@
     <?php include 'lib/includeHead.php'?>
 </head>
 <body>
+	<?php 
+		if ( isset( $_GET['msj']) ) {
+			echo "<script> $(document).ready(function() { Messenger().post({ message: ".$_GET['msj'].", type: 'error', showCloseButton: true }); }); </script>";
+		}
+	?>
     <div id="backgroundFix"></div>
     <div id="page">
         <header>
@@ -30,7 +35,8 @@
         <section id="main">
             <section id="contenido">
                 <section>
-                    Bienvenido tecnico
+                    Bienvenido tecnico, <br>Puede utilizar el sitio para registrar sus resultados.
+                    <img src="../images/logo.png" style="position:absolute;top:30%;left:30%; width:40%; height:40%; opacity:0.5;"/>
                 </section>
             </section>
             <section id="opciones">

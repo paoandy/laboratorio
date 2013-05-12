@@ -72,9 +72,12 @@
 	     $login = $_POST['login'];
 	     $password= $_POST['password'];
 	     $tipousuario = $_POST['tipousuario'];
-             $query->dbInsert(array('nombre'=>$nombre,'apellido'=>$apellido,'ci'=>$ci,'telefono'=>$telefono,'login'=>$login,'password'=>$password,'tipousuario'=>$tipousuario), 'usuario');
+             
+			$query->dbInsert(array('nombre'=>$nombre,'apellido'=>$apellido,'ci'=>$ci,'telefono'=>$telefono,'login'=>$login,'password'=>$password,'tipousuario'=>$tipousuario), 'usuario');
 
-      echo "<script>alert('Se Agrego un nuevo usuario');</script>";
+      	echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>El Usuario Se Registro Satisfactoriamente.',  showCloseButton: true }); }); </script>";
+		
+		$form->reset();
     }
         // generate output using a custom template
         $form->render('*horizontal');

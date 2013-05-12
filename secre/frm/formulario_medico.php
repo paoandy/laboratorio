@@ -1,5 +1,3 @@
-<fieldset>
-<legend>Paciente</legend> 
 <?php
     $querymedico = new query;
     
@@ -14,7 +12,7 @@
 	 ));
                 
 	    $form->add('label', 'label_email', 'email', 'Email');
-		$obj = $form->add('text', 'email', '', array('autocomplete' => 'off'));
+		$obj = $form->add('text', 'email', '', array('autocomplete' => 'off', 'placeholder' => 'email@dominio.com'));
 		    // set rules
 		    $obj->set_rule(array(
 			'required'  =>  array('error', 'Email es requiredo!'),
@@ -40,11 +38,15 @@
         if ($form->validate()) {
             $idmedico = $_POST['idmedico'];
             $nombre = $_POST['nombre'];
-	    $email = $_POST['email'];
-	    $telefono = $_POST['telefono'];
+			$email = $_POST['email'];
+			$telefono = $_POST['telefono'];
 
             $querymedico->dbInsert(array('nombre'=>$nombre,'email'=>$email,'telefono'=>$telefono),'medico');
+			
+			echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>El Medico Se Registro Satisfactoriamente.',  showCloseButton: true }); }); </script>";
+			
+			$form->reset();
         } 
+		
         $form->render('*horizontal');
 ?>
-</fieldset>

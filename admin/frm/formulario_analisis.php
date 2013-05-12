@@ -5,44 +5,41 @@
     var frmSeccion = true;
     var frmCategoria = false;
     var frmRango = false;
-    var retardo = 250;
     $(document).ready(function(){
-        $(categoria).fadeOut(100);
-        $(rango).fadeOut(100);
 
         $('#leyendaSeccion').click(function(){
             if ( frmSeccion ){
-                $(seccion).fadeOut(retardo);
+                $(seccion).slideUp();
                 frmSeccion = false;
             } else {
-                $(seccion).fadeIn(retardo);
+                $(seccion).slideDown();
                 frmSeccion = true;
             }
         });
 
         $('#leyendaCategoria').click(function(){
             if ( frmCategoria ){
-                $(categoria).fadeOut(retardo);
+                $(categoria).slideUp();
                 frmCategoria = false;
             } else {
-                $(categoria).fadeIn(retardo);
+                $(categoria).slideDown();
                 frmCategoria = true;
             }
         });
 
         $('#leyendaRango').click(function(){
             if ( frmRango ){
-                $(rango).fadeOut(retardo);
+                $(rango).slideUp();
                 frmRango = false;
             } else {
-                $(rango).fadeIn(retardo);
+                $(rango).slideDown();
                 frmRango = true;
             }
         });
     });
 </script>
 <fieldset>
-    <legend id="leyendaSeccion"><strong>Seccion de Analisis</strong></legend>
+    <legend id="leyendaSeccion"><strong> Seccion de Analisis</strong></legend>
         <div id="formularioSeccion">
             <?php
                 $query = new query;

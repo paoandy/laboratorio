@@ -13,6 +13,10 @@
             $titulos = array('ID', 'Nombre', 'Edad', 'Telefono', 'Operaciones' );
             $filas = $query->getRowsArray('IDPACIENTE, NOMBRE, EDAD, TELEFONO','PACIENTE');
             break;
+		case 'medico':
+            $titulos = array('ID', 'Nombre', 'Edad', 'Telefono', 'Operaciones' );
+            $filas = $query->getRowsArray('IDMEDICO, NOMBRE, EMAIL, TELEFONO','MEDICO');
+            break;
         case 'usuarios':
             $titulos = array('ID', 'Nombre','Apellido','DNI','Telefono','Login', 'Operaciones');
             $filas = $query->getRowsArray('IDUSUARIO, NOMBRE,APELLIDO,CI,TELEFONO,LOGIN','USUARIO');
@@ -37,7 +41,8 @@
                 echo "<div class='celda'>".$celda."</div>";
             }
             echo "<div class='celda'>";
-            echo "<a href='#?".$id."'><img src='../images/edit.png'/></a><a href='#?".$id."'><img src='../images/delete.png'/></a>";
+            echo "<a href='#?".$id."'><img src='../images/edit.png'/></a>".
+				  "<a href='tpl/delete.php?id=".$id."&accion=".$accion."'><img src='../images/delete.png'/ onclick='return confirm(\"Esta Seguro Que Desea Eliminar El Registro?\");'></a>";
             echo "</div>";
             echo "</div>";
         }

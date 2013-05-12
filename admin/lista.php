@@ -33,6 +33,11 @@
         <section id="main">
             <section id="contenido">
                 <section>
+					<?php 
+                        if ( isset( $_GET['msj']) ) {
+                            echo "<script> $(document).ready(function() { Messenger().post({ message: ".$_GET['msj'].", type: 'error', showCloseButton: true }); }); </script>";
+                        }
+                    ?>
                     <?php
                         $accion = $_GET['accion'];
                         include 'tpl/tabla.php';

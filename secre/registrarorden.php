@@ -30,7 +30,6 @@
         <section id="main">
             <section id="contenido">
                 <section>
-                    <center><h1>Registrar Orden</h1></center>
                     <?php include('frm/formulario_registrar_orden.php'); ?>
                 </section>
             </section>

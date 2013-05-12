@@ -16,13 +16,6 @@
 </nav>
 
 <nav class="redondo">
-    <span>Reservas</span>
-    <ul>
-        <li><a href="#">Ver Reservas</a></li>
-    </ul>
-</nav>
-
-<nav class="redondo">
     <span>Usuario</span>
     <ul>
         <li><a href="../logout.php">Desconectarse</a></li>
