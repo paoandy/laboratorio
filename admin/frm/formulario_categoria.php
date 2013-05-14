@@ -53,7 +53,9 @@
 
             $query->dbInsert(array('idseccion'=>$idseccion,'nombrecategoria'=>$nombrecategoria,'descripcioncategoria'=>$descripcioncategoria), 'categoria');
 
-            echo "<script>alert('Se Agrego La Categoria ');</script>";
+            echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>Se agrego la categoria satisfactoriamente',  showCloseButton: true }); }); </script>";
+	    
+	    $form->reset();
         }
 
 

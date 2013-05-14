@@ -71,6 +71,11 @@
                         $query->dbInsert(array('idseccion'=>$idseccion,'nombreseccion'=>$nombreseccion), 'seccion');
 
                         echo "<script>alert('Se Agrego La Seccion de Analisis');</script>";
+                        
+                        echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>Se agrego la categoria satisfactoriamente',  showCloseButton: true }); }); </script>";
+	    
+                        $form->reset(); 
+                        
                    }
 
                    // auto generate output, labels above form elements

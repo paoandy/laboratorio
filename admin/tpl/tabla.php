@@ -9,6 +9,10 @@
             $titulos = array('ID', 'Nombre', 'Operaciones');
             $filas = $query->getRowsArray('*','SECCION');
             break;
+        case 'categoria':
+            $titulos = array('ID','Nombre','Costo','Descripcion', 'Operaciones');
+            $filas = $query->getRowsArray('IDCATEGORIA,NOMBRECATEGORIA,COSTO,DESCRIPCIONCATEGORIA','CATEGORIA');
+            break;
         case 'paciente':
             $titulos = array('ID', 'Nombre', 'Edad', 'Telefono', 'Operaciones' );
             $filas = $query->getRowsArray('IDPACIENTE, NOMBRE, EDAD, TELEFONO','PACIENTE');
@@ -20,6 +24,10 @@
         case 'usuarios':
             $titulos = array('ID', 'Nombre','Apellido','DNI','Telefono','Login', 'Operaciones');
             $filas = $query->getRowsArray('IDUSUARIO, NOMBRE,APELLIDO,CI,TELEFONO,LOGIN','USUARIO');
+            break;
+        case 'proveedor':
+            $titulos = array('ID', 'Nombre','Direccion','Email','Telefono','Descripcion', 'Operaciones');
+            $filas = $query->getRowsArray('IDPROVEEDOR, NOMBRE,DIRECCION,EMAIL,TELEFONO,DESCRIPCION','PROVEEDOR');
             break;
     }
     //print_r($filas);

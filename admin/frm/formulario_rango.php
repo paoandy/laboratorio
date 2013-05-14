@@ -82,7 +82,9 @@
 
             $query->dbInsert(array('idcategoria'=>$idcategoria, 'nombre'=>$etiqueta ,'descripcion'=>$descripcion,'minimo'=>$minimo,'maximo'=>$maximo,'unidad'=>$unidad), 'rango');
 
-            echo "<script>alert('Se Agrego El Rango Para: ".$etiqueta."');</script>";
+	    echo "<script> $(document).ready(function() { Messenger().post({ message:'Se Agrego El Rango Para: ".$etiqueta."' ,  showCloseButton: true }); }); </script>";
+	   
+	   $form->reset();
         }
         $form->render('*horizontal');
     }

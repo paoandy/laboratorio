@@ -1,5 +1,4 @@
-<fieldset>
-<legend>Proveedor</legend> 
+
 <?php
     $query = new query;
     
@@ -23,7 +22,7 @@
 		    'length'     =>  array(10,50,'error','El valor debe estar entre 10 y 50 caracteres'),
 	 ));   
 	    $form->add('label', 'label_email', 'email', 'Email');
-		$obj = $form->add('text', 'email', '', array('autocomplete' => 'off','placeholder' => 'Email'));
+		$obj = $form->add('text', 'email', '', array('autocomplete' => 'off','placeholder' => 'email@dominio.com'));
 		    // set rules
 		    $obj->set_rule(array(
 			'required'  =>  array('error', 'Email es requiredo!'),
@@ -61,7 +60,10 @@
 	    $descripcion = $_POST['descripcion'];
 
             $query->dbInsert(array('nombre'=>$nombre,'direccion'=>$direccion,'email'=>$email,'telefono'=>$telefono,'descripcion'=>$descripcion),'proveedor');
-        } 
+        
+		echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>El Proveedor Se Registro Satisfactoriamente.',  showCloseButton: true }); }); </script>";
+		
+		$form->reset();
+	} 
         $form->render('*horizontal');
 ?>
-</fieldset>

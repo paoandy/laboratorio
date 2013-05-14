@@ -1,7 +1,7 @@
 <?php
    $query = new query;
 	 $form = new Zebra_Form('formPaciente');
-	     $form->add('label', 'nombre_paciente', 'nombre', 'Nombre Paciente:');
+	     $form->add('label', 'nombre_paciente', 'nombre', 'Nombre:');
 		$obj = $form->add('text', 'nombre', '', array('placeholder' => 'Nombre del Paciente'));
 	       // set rules
 		  $obj->set_rule(array(
@@ -10,7 +10,7 @@
 		      'length'     =>  array(3,100,'error','El valor debe estar entre 3 y 60 caracteres'),
 	   ));
       //	edad del paciente
-	 $form->add('label', 'edad_paciente', 'edad', 'Edad Paciente:');
+	 $form->add('label', 'edad_paciente', 'edad', 'Edad:');
 	       $obj = $form->add('text', 'edad', '', array('placeholder' => 'Edad del Paciente'));
 	       // set rules
 		$obj->set_rule(array(
@@ -19,7 +19,7 @@
 		     'length'     =>  array(1,3,'error','El valor debe estar entre 1 y 3 digitos'),
 	   ));
        //	sexo del paciente      
-	 $form->add('label', 'sexo_paciente', 'sexo', 'Sexo Paciente:');
+	 $form->add('label', 'sexo_paciente', 'sexo', 'Sexo:');
 	       $obj = $form->add('select', 'sexo', '');
 		   $obj->add_options( array('F'=>'Femenino', 'M'=>'Masculino') );
 	       // set rules
@@ -28,7 +28,7 @@
 		     'length'     =>  array(1,3,'error','El valor debe estar entre 1 y 3 digitos'),
 	   ));
 	//telefono del paciente      
-	 $form->add('label', 'telefono_paciente', 'telefono', 'telefono Paciente:');
+	 $form->add('label', 'telefono_paciente', 'telefono', 'telefono:');
 	       $obj = $form->add('text', 'telefono', '', array('placeholder' => 'Telefono del Paciente'));
 	       // set rules
 		$obj->set_rule(array(

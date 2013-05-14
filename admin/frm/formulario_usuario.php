@@ -2,7 +2,7 @@
  <?php
     $query = new query;
        $form = new Zebra_Form('formusuario');
-	   $form->add('label', 'nombre_usuario', 'nombre', 'Nombre usuario:');
+	   $form->add('label', 'nombre_usuario', 'nombre', 'Nombre:');
 	      $obj = $form->add('text', 'nombre', '', array('placeholder' => 'Nombre del Usuario'));
 	     // set rules
 		$obj->set_rule(array(
@@ -10,7 +10,7 @@
 		    'required' => array('error', 'este campo es requerido!'),
 		    'length'     =>  array(3,100,'error','El valor debe estar entre 3 y 100 caracteres'),
 	 ));
-	$form->add('label', 'apellido_usuario', 'apellido', 'Apellido usuario:');
+	$form->add('label', 'apellido_usuario', 'apellido', 'Apellido:');
 	      $obj = $form->add('text', 'apellido', '', array('placeholder' => 'Apellido del Usuario'));
 	     // set rules
 		$obj->set_rule(array(
@@ -19,7 +19,7 @@
 		    'length'     =>  array(3,100,'error','El valor debe estar entre 3 y 100 caracteres'),
 	 ));
     //	CI del Usuario
-       $form->add('label', 'ci_usuario', 'ci', 'CI usuario:');
+       $form->add('label', 'ci_usuario', 'ci', 'CI:');
 	     $obj = $form->add('text', 'ci', '', array('placeholder' => 'Carnet de Identidad'));
 	     // set rules
 	      $obj->set_rule(array(
@@ -28,7 +28,7 @@
 		   'length'     =>  array(7,7,'error','El valor debe ser al menos 7 digitos'),
 	 ));
      //telefono del usuario
-       $form->add('label', 'telefono_usuario', 'telefono', 'Telefono Usuario:');
+       $form->add('label', 'telefono_usuario', 'telefono', 'Telefono:');
 	     $obj = $form->add('text', 'telefono', '', array('placeholder' => 'Telefono del Usuario'));
 	     // set rules
 	      $obj->set_rule(array(
@@ -36,7 +36,7 @@
 		   'length'     =>  array(7,7,'error','El valor debe ser 7 digitos'),
 	 ));
      //	Login Usuario
-       $form->add('label', 'login_usuario', 'login', 'Login Usuario:');
+       $form->add('label', 'login_usuario', 'login', 'Login:');
 	     $obj = $form->add('text', 'login', '', array('placeholder' => 'Login Usuario'));
 	     // set rules
 	      $obj->set_rule(array(
@@ -51,7 +51,7 @@
 		   'length'    => array(6, 10, 'error', 'The password must have between 6 and 10 characters!'),
 	 ));
       // tipo Usuario
-       $form->add('label', 'tipo_usuario', 'tipousuario', 'Tipo Usuario:');
+       $form->add('label', 'tipo_usuario', 'tipousuario', 'Tipo:');
 	     $obj = $form->add('select', 'tipousuario', '');
              $obj->add_options( array('0'=>'Administrador', '1'=>'Secretaria', '2'=>'Tecnico') );
 	     // set rules
