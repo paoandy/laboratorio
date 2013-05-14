@@ -9,7 +9,34 @@
     //$secciones = $query->getRowsArray('*','seccion, categoria', 'WHERE seccion.idseccion = categoria.idseccion ORDER BY seccion.nombreseccion, categoria.nombrecategoria');
     $secciones = $query->getRowsArray('*','seccion', 'ORDER BY seccion.nombreseccion');
 
-    print_r($_POST);
+    //print_r($_POST);
+	
+	if ( isset($_POST['IDPACIENTE']) ){
+		$idusuario = $_POST['IDUSUARIO'];
+		$idpaciente = $_POST['IDPACIENTE'];
+		$idmedico = $_POST['IDMEDICO'];
+		$descripcion = $_POST['DESCRIPCION'];
+		$material = $_POST['MATERIAL'];
+		$fechaorden = date('Y-m-d');
+		$total = $_POST['total'];
+		$saldo = $_POST['total'];
+		
+		$query->dbInsert(array('IDUSUARIO'=>$idusuario, 'IDPACIENTE'=>$idpaciente, 'IDMEDICO'=>$idmedico, 'DESCRIPCIONORDEN'=>$descripcion, 'MATERIAL'=>$material, 'FECHAPEDIDO'=>$fechaorden, 'ESTADO'=>'0',
+								'TOTAL'=>$total, 'SALDO'=>$saldo),'ORDEN');
+		
+		//OJO revisar
+		$idorden = $query->getRow('*','ORDEN', 'ORDER BY IDORDEN DESC');
+		$idorden = $idorden['IDORDEN'];
+		
+		$realizar = $_POST['realizar'];
+		foreach($realizar as $codigo){
+			$codigo;
+			$costo = $_POST['costo'][$codigo];
+			$query->dbInsert(array('IDORDEN'=>$idorden, 'IDCATEGORIA'=>$codigo, 'COSTO'=>$costo ),'RESULTADO');
+		}
+		
+		echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Orden...<br><br>La Orden Fue Registrada Satisfactoriamente.',  showCloseButton: true }); }); </script>";
+	}
 ?>
 <form action="registrarorden.php" method="post">
     <fieldset style="box-shadow:inset 0px 0px 10px rgb(225,225,225);">
@@ -25,6 +52,7 @@
             <strong>Registrado Por:</strong> <?php echo $_SESSION['login']; ?><br/>
             <strong>Fecha: </strong><?php echo date('d/m/Y'); ?><br/>
             <strong>Descripcion:</strong><br/><textarea name="DESCRIPCION" style="width:100%;" placeholder="Descripcion/Otros/Observaciones"></textarea>
+            <strong>Material:</strong><br/><textarea name="MATERIAL" style="width:100%;" placeholder="Material Para Trabajar"></textarea>
 
             <fieldset style="margin:20px; padding:20px;">
             <legend>Analisis Disponibles</legend>
@@ -35,7 +63,7 @@
                         echo "<ul>";
                             $subcategorias = $query->getRowsArray('*','CATEGORIA','WHERE IDSECCION ='.$seccion['IDSECCION']);
                             foreach($subcategorias as $subcategoria){
-                                echo "<li><input class='check' type='checkbox' name='realizar[".$subcategoria['IDCATEGORIA']."]' value='".$subcategoria['CODIGO']."' data-codigo='".$subcategoria['IDCATEGORIA']."'/><span>".$subcategoria['NOMBRECATEGORIA']." : </span>".
+                                echo "<li><input class='check' type='checkbox' name='realizar[".$subcategoria['IDCATEGORIA']."]' value='".$subcategoria['IDCATEGORIA']."' data-codigo='".$subcategoria['IDCATEGORIA']."'/><span>".$subcategoria['NOMBRECATEGORIA']." : </span>".
                                     "<input class='costo' type='text' name='costo[".$subcategoria['IDCATEGORIA']."]' value='".$subcategoria['COSTO']."' data-codigo='".$subcategoria['IDCATEGORIA']."' disabled/><span>Bs.</span></li>";
                             }
                         echo "</ul>";

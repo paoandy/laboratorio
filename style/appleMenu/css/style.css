@@ -77,13 +77,6 @@
     -webkit-border-radius:10px;
     border-radius:10px;
 
-    /* We use the CSS3 multiple backgrounds for the input field: The magnifier image and the gradient background */
-    background-image: url("../images/magnifier.png"), -webkit-gradient(linear, left bottom, left top, color-stop(0, #747474), color-stop(0.5, #6E6E6E), color-stop(0.51, #7E7E7E), color-stop(1, #8D8D8D));
-    background-image: url("../images/magnifier.png"), -moz-linear-gradient(center bottom, rgb(225,225,225) 0%, rgb(255,255,255) 50%, rgb(255,255,255) 51%, rgb(225,225,225) 100%);
-    background-repeat: no-repeat;
-
-    background-color:#6E6E6E; /* Fallback */
-
     -moz-box-shadow: inset 0 2px 1px 1px #363636;
     -webkit-box-shadow: inset 0 2px 1px 1px #363636;
     box-shadow: inset 0 2px 1px 1px #363636;
