@@ -69,6 +69,12 @@
 			formatSelection: formatTitulo,
 			escapeMarkup: function(m) { return m; }
 		});
+		
+		$('#select2orden').click(function(){
+			var id = $('#select2orden').val();
+			window.location = "resultados.php?id="+id;
+			//alert($('#select2orden').val());
+		});
 	});
 	
 	//$(document).ready(function() { $("#select2orden").select2(); });

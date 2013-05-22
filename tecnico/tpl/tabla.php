@@ -5,6 +5,8 @@
     $query = new query;
 	
 	$especial = false;
+	$opciones = false;
+	
 	$columna = -1;
 
     switch($accion){
@@ -47,6 +49,7 @@
 					if ( $id == null ) $id = $celda;
 					echo "<div class='celda'>".$celda."</div>";
 				}
+			
 				$aux++;
             }
             echo "</div>";
