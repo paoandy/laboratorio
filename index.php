@@ -1,78 +1,46 @@
-<?php
-    require_once('lib/includeLibs.php');
-	
-	$error = false;
-	
-	if ( isset( $_GET['msj']) ) {
-		$mensaje = $_GET['msj'];
-		redireccionarUsuario('?msj='.$mensaje);
-	}
-    //Preguntar Si Iniciamos Session
-	if(isset($_POST['login']) && isset($_POST['password'])){
-        $sesion = new login;
-        $id = $sesion->validate($_POST['login'],$_POST['password']);
-
-        if ($id){
-            $sesion->loginUser($id);
-
-            redireccionarUsuario();
-        }else{
-			$error = true;
-            $mensaje = 'Error Al Iniciar Sesion,<br><br> No Existe Su Usuario.';
-        }
-    }
-	
-	function redireccionarUsuario($parametros=''){
-		$tipo = $_SESSION['tipousuario'];
-
-        switch($tipo){
-             case 0:
-			 	header("Location:admin/index.php".$parametros);
-                break;
-			case 1:
-                header("Location:secre/index.php".$parametros);
-                break;
-			case 2:
-                header("Location:tecnico/index.php".$parametros);
-                break;
-			default:
-				$error = true;
-            	$mensaje = "Ocurrio Un Error al iniciar Sesion, Usted no tiene un tipo de usuario asignado.";
-		}
-	}
-?>
+<?php require_once('administrador/lib/includeLibs.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>SLCHL</title>
+    <meta charset="utf-8"/>
     <link rel="stylesheet" href="style/estilo.css" type="text/css"/>
-    <link rel="stylesheet" href="lib/zebra/public/css/zebra_form.css">
     
     <link rel="stylesheet" href="scripts/messenger/css/messenger.css">
     <link rel="stylesheet" href="scripts/messenger/css/messenger-theme-future.css">
     
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="lib/zebra/public/javascript/zebra_form.js"></script>
     <script src="scripts/messenger/js/messenger.min.js"></script>
-    <link rel="shortcut icon" href="favicon.ico" />
+    
+    <script type="text/javascript" src="scripts/select2/select2.min.js"></script>
+    <script type="text/javascript" src="scripts/select2/select2_locale_es.js"></script>
+    <link rel="stylesheet" href="scripts/select2/select2.css"/>
+    
+    
+    <link rel="shortcut icon" href="administador/favicon.ico" />
 </head>
 <body>
-	<?php 
-	if ($error){
-		echo "<script> $(document).ready(function() { Messenger().post({ message: '".$mensaje."', type: 'error', showCloseButton: true }); }); </script>";
-	}
-	?>
     <div id="backgroundFix"></div>
-    <section class="login">
+    <section class="login" id="pedido">
         <section>
-            <span><img src="images/logo.png">HEMOLAB</span>
-            <form name="sesion" action="index.php" method="post">
-                <input type="text" name='login' placeholder='Nombre de Usuario'/>
-                <input type='password' name='password' placeholder='Password'/>
-                <input type='submit' value="Ingresar"/>
-            </form>
+            <span><img src="administrador/images/logo.png"><br>HEMOLAB</span>
+            <span><br>Hacer Pedido</span>
         </section>
     </section>
+    
+    <section id="contenido" style="display:none;">
+    	<section>
+			<?php include('formulario_registrar_orden.php'); ?>
+		</section>
+	</section>
+    
+    <script>
+		$(document).ready(function(e) {
+            $('#pedido').click( function () {
+				$(this).fadeOut();
+				$('#contenido').slideDown(1000);
+			});
+        });
+	</script>
 </body>
 </html>
