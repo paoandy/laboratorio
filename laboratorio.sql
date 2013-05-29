@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 14, 2013 at 09:10 PM
+-- Generation Time: May 29, 2013 at 12:19 PM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -91,10 +91,10 @@ INSERT INTO `CATEGORIA` (`IDCATEGORIA`, `IDSECCION`, `NOMBRECATEGORIA`, `COSTO`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `COSTO`
+-- Table structure for table `COBRO`
 --
 
-CREATE TABLE IF NOT EXISTS `COSTO` (
+CREATE TABLE IF NOT EXISTS `COBRO` (
   `IDCOBRO` int(8) NOT NULL AUTO_INCREMENT,
   `IDORDEN` int(11) NOT NULL,
   `FECHA` datetime NOT NULL,
@@ -102,12 +102,18 @@ CREATE TABLE IF NOT EXISTS `COSTO` (
   `DESCRIPCION` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`IDCOBRO`),
   KEY `FK_ORDEN_COSTO` (`IDORDEN`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `COSTO`
+-- Dumping data for table `COBRO`
 --
 
+INSERT INTO `COBRO` (`IDCOBRO`, `IDORDEN`, `FECHA`, `CANTIDAD`, `DESCRIPCION`) VALUES
+(1, 1, '2013-05-23 09:32:04', 0, 'Primer Cobro'),
+(2, 1, '2013-05-23 09:34:08', 35.5, 'Adelanto Pagado, Saldo 20Bs'),
+(3, 1, '2013-05-23 09:34:43', 20, 'Saldo Cancelado'),
+(4, 2, '2013-05-23 09:35:28', 100, 'Motivo de adelanto, saldo 50Bs.'),
+(5, 2, '2013-05-23 09:35:39', 50, 'Total Pagado');
 
 -- --------------------------------------------------------
 
@@ -125,12 +131,20 @@ CREATE TABLE IF NOT EXISTS `INSUMO` (
   PRIMARY KEY (`IDINSUMO`),
   KEY `FK_INSUMO_PROVEEDOR` (`IDPROVEEDOR`),
   KEY `FK_ORDEN_INSUMO` (`IDORDEN`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `INSUMO`
 --
 
+INSERT INTO `INSUMO` (`IDINSUMO`, `IDORDEN`, `IDPROVEEDOR`, `NOMBRE`, `FECHA`, `DESCRIPCION`) VALUES
+(1, 0, 0, 'Reactivos', '0000-00-00 00:00:00', 'Para el analisis de Rutina'),
+(2, 1, 0, 'Material A', '0000-00-00 00:00:00', 'Para Rutina'),
+(3, 2, 1, 'Material A', '0000-00-00 00:00:00', ''),
+(4, 1, 1, 'Insumo A', '2013-05-23 00:00:00', 'Poca cantidad'),
+(5, 1, 1, 'Reactivo C', '2013-05-23 00:00:00', 'Usado apra hemoglobina '),
+(6, 2, 1, 'ReactvivoB', '2013-05-23 20:31:35', 'Descric'),
+(7, 2, 1, 'asd', '2013-05-23 08:32:09', 'asd');
 
 -- --------------------------------------------------------
 
@@ -190,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `ORDEN` (
 INSERT INTO `ORDEN` (`IDORDEN`, `IDUSUARIO`, `IDMEDICO`, `IDPACIENTE`, `FECHAPEDIDO`, `DESCRIPCIONORDEN`, `MATERIAL`, `ESTADO`, `FECHAENTREGA`, `TOTAL`, `SALDO`) VALUES
 (1, 4, 1, 1, '2013-05-14 09:00:00', 'Analisis de Rutina', 'Sangre', 0, NULL, 30, 30),
 (2, 4, 2, 2, '2013-05-14 14:00:00', 'Analisis de Rutina', 'Sangre', 1, NULL, 20, 20),
-(3, 4, 3, 3, '2013-05-14 16:30:00', 'N/A', 'Sangre', 0, NULL, 100, 100);
+(3, 4, 3, 3, '2013-05-14 16:30:00', 'N/A', 'Sangre', 1, NULL, 100, 100);
 
 -- --------------------------------------------------------
 
@@ -260,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `RANGO` (
   `UNIDAD` varchar(5) NOT NULL,
   PRIMARY KEY (`IDRANGO`),
   KEY `FK_RANGO_CATEGORIA` (`IDCATEGORIA`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 --
 -- Dumping data for table `RANGO`
@@ -309,7 +323,9 @@ INSERT INTO `RANGO` (`IDRANGO`, `IDCATEGORIA`, `NOMBRE`, `DESCRIPCION`, `MINIMO`
 (40, 43, 'hombre en condiciones normales', 'hombre en condiciones normales  independiente de edad', 1, 4, '%'),
 (41, 42, 'hombre en condiciones normales', 'hombre en condiciones normales  independiente de edad', 12, 8, '%'),
 (42, 41, 'hombre en condiciones normales', 'hombre en condiciones normales  independiente de edad', 25, 40, '%'),
-(43, 45, 'hombre en condiciones normales', 'hombre en condiciones normales  independiente de edad', 0, 20, 'mm');
+(43, 45, 'hombre en condiciones normales', 'hombre en condiciones normales  independiente de edad', 0, 20, 'mm'),
+(44, 36, 'Mujer En COndiciones Normales', NULL, 1, 5, 'mg'),
+(45, 36, 'Adulto Con Diabetes', NULL, 1, 10, 'mg');
 
 -- --------------------------------------------------------
 
@@ -341,9 +357,9 @@ INSERT INTO `RESULTADO` (`IDRESULTADO`, `IDRANGO`, `IDORDEN`, `IDCATEGORIA`, `RE
 (3, NULL, 1, 32, NULL, NULL, 10),
 (4, NULL, 2, 31, NULL, NULL, 10),
 (5, NULL, 2, 32, NULL, NULL, 10),
-(6, NULL, 3, 35, NULL, NULL, 45),
-(7, NULL, 3, 36, NULL, NULL, 35),
-(8, NULL, 3, 37, NULL, NULL, 20);
+(6, 33, 3, 35, 12, '', 45),
+(7, 34, 3, 36, 23, 'Todo Ok!', 35),
+(8, 35, 3, 37, 40, 'ok!', 20);
 
 -- --------------------------------------------------------
 
