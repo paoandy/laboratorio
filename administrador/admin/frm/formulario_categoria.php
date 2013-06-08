@@ -16,7 +16,12 @@
 		    'required' => array('error', 'este campo es requerido!'),
 		    'length'     =>  array(3,40,'error','El valor debe estar entre 3 y 20 caracteres'),
 	 ));
-
+	    $form->add('label', 'costo_categoria', 'costo', 'Costo:');
+	      $obj = $form->add('text', 'costo', '', array('placeholder' => 'Costo Analisis'));
+	     // set rules
+		$obj->set_rule(array(
+		    'required' => array('error', 'este campo es requerido!'),
+	 ));
        // "descripcion"
 	$form->add('label', 'label_message', 'descripcion', 'Descripcion:');
 	     $obj = $form->add('textarea', 'descripcion');
@@ -49,9 +54,10 @@
             $idcategoria = $_POST['idcategoria'];
             $idseccion = $_POST['idseccion'];
             $nombrecategoria = $_POST['nombrecategoria'];
+	    $costo = $_POST['costo'];
             $descripcioncategoria = $_POST['descripcion'];
 
-            $query->dbInsert(array('idseccion'=>$idseccion,'nombrecategoria'=>$nombrecategoria,'descripcioncategoria'=>$descripcioncategoria), 'categoria');
+            $query->dbInsert(array('idseccion'=>$idseccion,'nombrecategoria'=>$nombrecategoria,'costo'=>$costo,'descripcioncategoria'=>$descripcioncategoria), 'categoria');
 
             echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>Se agrego la categoria satisfactoriamente',  showCloseButton: true }); }); </script>";
 	    

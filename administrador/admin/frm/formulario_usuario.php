@@ -35,6 +35,15 @@
 		   'required' => array('error', 'este campo es requerido!'),
 		   'length'     =>  array(7,7,'error','El valor debe ser 7 digitos'),
 	 ));
+      //email
+	 $form->add('label', 'label_email', 'email', 'Email');
+		$obj = $form->add('text', 'email', '', array('autocomplete' => 'off','placeholder' => 'email@dominio.com'));
+		    // set rules
+		    $obj->set_rule(array(
+			'required'  =>  array('error', 'Email es requiredo!'),
+			'email'     =>  array('error', 'el email no es valido!'),
+		
+		    ));
      //	Login Usuario
        $form->add('label', 'login_usuario', 'login', 'Login:');
 	     $obj = $form->add('text', 'login', '', array('placeholder' => 'Login Usuario'));
@@ -69,11 +78,12 @@
 	     $apellido = $_POST['apellido'];
 	     $ci = $_POST['ci'];
 	     $telefono = $_POST['telefono'];
+	     $email = $_POST['email'];
 	     $login = $_POST['login'];
 	     $password= $_POST['password'];
 	     $tipousuario = $_POST['tipousuario'];
              
-			$query->dbInsert(array('nombre'=>$nombre,'apellido'=>$apellido,'ci'=>$ci,'telefono'=>$telefono,'login'=>$login,'password'=>$password,'tipousuario'=>$tipousuario), 'usuario');
+			$query->dbInsert(array('nombre'=>$nombre,'apellido'=>$apellido,'ci'=>$ci,'telefono'=>$telefono,'email'=>$email,'login'=>$login,'password'=>$password,'tipousuario'=>$tipousuario), 'usuario');
 
       	echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>El Usuario Se Registro Satisfactoriamente.',  showCloseButton: true }); }); </script>";
 		

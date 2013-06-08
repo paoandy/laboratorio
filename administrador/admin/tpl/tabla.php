@@ -22,8 +22,8 @@
             $filas = $query->getRowsArray('IDMEDICO, NOMBRE, EMAIL, TELEFONO','MEDICO');
             break;
         case 'usuarios':
-            $titulos = array('ID', 'Nombre','Apellido','DNI','Telefono','Login', 'Operaciones');
-            $filas = $query->getRowsArray('IDUSUARIO, NOMBRE,APELLIDO,CI,TELEFONO,LOGIN','USUARIO');
+            $titulos = array('ID', 'Nombre','Apellido','DNI','Telefono','Email','Login', 'Operaciones');
+            $filas = $query->getRowsArray('IDUSUARIO, NOMBRE,APELLIDO,CI,TELEFONO,EMAIL,LOGIN','USUARIO');
             break;
         case 'proveedor':
             $titulos = array('ID', 'Nombre','Direccion','Email','Telefono','Descripcion', 'Operaciones');

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2013 a las 19:07:58
+-- Tiempo de generación: 08-06-2013 a las 23:45:18
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -397,6 +397,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `APELLIDO` varchar(50) NOT NULL,
   `CI` int(11) NOT NULL,
   `TELEFONO` varchar(1024) NOT NULL,
+  `EMAIL` varchar(50) NOT NULL,
   `LOGIN` varchar(50) NOT NULL,
   `PASSWORD` varchar(50) NOT NULL,
   `TIPOUSUARIO` int(11) NOT NULL,
@@ -407,12 +408,12 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`IDUSUARIO`, `NOMBRE`, `APELLIDO`, `CI`, `TELEFONO`, `LOGIN`, `PASSWORD`, `TIPOUSUARIO`) VALUES
-(1, 'diego', 'landa', 4529947, '4281228', 'diego', '.diego', 0),
-(2, 'Administrador', 'Administrador', 1234567, '', 'admin', '.admin', 0),
-(4, 'Secretaria', 'Secretaria', 1234567, '4281228', 'secretaria', '.secretaria', 1),
-(5, 'tecnico', 'tecnico', 1234567, '4281228', 'tecnico', '.tecnico', 2),
-(8, 'Paola', 'Escobar', 4538881, '4426440', 'andrea', 'secretaria', 1);
+INSERT INTO `usuario` (`IDUSUARIO`, `NOMBRE`, `APELLIDO`, `CI`, `TELEFONO`, `EMAIL`, `LOGIN`, `PASSWORD`, `TIPOUSUARIO`) VALUES
+(1, 'diego', 'landa', 4529947, '4281228', '', 'diego', '.diego', 0),
+(2, 'Administrador', 'Administrador', 1234567, '', '', 'admin', '.admin', 0),
+(4, 'Secretaria', 'Secretaria', 1234567, '4281228', '', 'secretaria', '.secretaria', 1),
+(5, 'tecnico', 'tecnico', 1234567, '4281228', '', 'tecnico', '.tecnico', 2),
+(8, 'Paola', 'Escobar', 4538881, '4426440', 'paolaandrehe@gmail.com', 'andrea', 'secretaria', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
