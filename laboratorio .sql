@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.4
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 29, 2013 at 12:19 PM
--- Server version: 5.1.44
--- PHP Version: 5.3.1
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 08-06-2013 a las 19:07:58
+-- Versión del servidor: 5.5.27
+-- Versión de PHP: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,16 +17,16 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `laboratorio`
+-- Base de datos: `laboratorio`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `CATEGORIA`
+-- Estructura de tabla para la tabla `categoria`
 --
 
-CREATE TABLE IF NOT EXISTS `CATEGORIA` (
+CREATE TABLE IF NOT EXISTS `categoria` (
   `IDCATEGORIA` int(8) NOT NULL AUTO_INCREMENT,
   `IDSECCION` int(11) NOT NULL,
   `NOMBRECATEGORIA` varchar(50) NOT NULL,
@@ -36,33 +37,33 @@ CREATE TABLE IF NOT EXISTS `CATEGORIA` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
 
 --
--- Dumping data for table `CATEGORIA`
+-- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `CATEGORIA` (`IDCATEGORIA`, `IDSECCION`, `NOMBRECATEGORIA`, `COSTO`, `DESCRIPCIONCATEGORIA`) VALUES
+INSERT INTO `categoria` (`IDCATEGORIA`, `IDSECCION`, `NOMBRECATEGORIA`, `COSTO`, `DESCRIPCIONCATEGORIA`) VALUES
 (1, 1, 'Glicemia', 30, ''),
 (2, 1, 'Hemoglobina Glicosilada', 10, 'Consta del conteo de globulos rojos'),
 (3, 2, 'Colesterol', 50, 'Analisis del porcentaje de colesterol en sangre'),
 (4, 3, 'Fosfata Alcalina', 25, 'Analisis del porcentaje de fosfato en sangre'),
-(9, 4, 'urea', 20, ''),
-(5, 4, 'glicemia', 15, 'azucar en la sangre'),
-(6, 4, 'hemoglobina glucosidada', 15, 'nivel de emoglobina en sangre'),
-(7, 4, 'creatinina', 20, ''),
-(8, 4, 'acido urico', 25, ''),
-(10, 4, 'N urico', 15, ''),
-(11, 5, 'Colesterol', 30, ''),
-(12, 5, 'Trigliceridos', 15, ''),
-(13, 5, 'HDL Colesterol', 10, 'colesterol  en sangre'),
-(14, 5, 'LDL colesterol', 10, 'colesterol  en sangre'),
-(15, 5, 'VLDL', 20, 'colesterol  en sangre'),
-(16, 6, 'fosfata alcalina', 10, ''),
-(17, 6, 'GOT', 20, ''),
-(18, 6, 'GPT', 20, ''),
-(19, 6, 'Bilirrubina Directa', 10, ''),
-(20, 6, 'Bilirrubina Total', 10, ''),
-(21, 6, 'proteinas totales', 30, ''),
-(22, 6, 'Albuminas', 20, ''),
-(23, 6, 'gloobulina', 20, ''),
+(9, 1, 'urea', 20, ''),
+(5, 1, 'glicemia', 15, 'azucar en la sangre'),
+(6, 1, 'hemoglobina glucosidada', 15, 'nivel de emoglobina en sangre'),
+(7, 1, 'creatinina', 20, ''),
+(8, 1, 'acido urico', 25, ''),
+(10, 1, 'N urico', 15, ''),
+(11, 2, 'Colesterol', 30, ''),
+(12, 2, 'Trigliceridos', 15, ''),
+(13, 2, 'HDL Colesterol', 10, 'colesterol  en sangre'),
+(14, 2, 'LDL colesterol', 10, 'colesterol  en sangre'),
+(15, 2, 'VLDL', 20, 'colesterol  en sangre'),
+(16, 3, 'fosfata alcalina', 10, ''),
+(17, 3, 'GOT', 20, ''),
+(18, 3, 'GPT', 20, ''),
+(19, 3, 'Bilirrubina Directa', 10, ''),
+(20, 3, 'Bilirrubina Total', 10, ''),
+(21, 3, 'proteinas totales', 30, ''),
+(22, 3, 'Albuminas', 20, ''),
+(23, 3, 'gloobulina', 20, ''),
 (24, 7, 'insulina', 30, ''),
 (25, 7, 'TSH', 15, ''),
 (26, 7, 'T libre', 18, ''),
@@ -91,10 +92,10 @@ INSERT INTO `CATEGORIA` (`IDCATEGORIA`, `IDSECCION`, `NOMBRECATEGORIA`, `COSTO`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `COBRO`
+-- Estructura de tabla para la tabla `cobro`
 --
 
-CREATE TABLE IF NOT EXISTS `COBRO` (
+CREATE TABLE IF NOT EXISTS `cobro` (
   `IDCOBRO` int(8) NOT NULL AUTO_INCREMENT,
   `IDORDEN` int(11) NOT NULL,
   `FECHA` datetime NOT NULL,
@@ -105,23 +106,23 @@ CREATE TABLE IF NOT EXISTS `COBRO` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `COBRO`
+-- Volcado de datos para la tabla `cobro`
 --
 
-INSERT INTO `COBRO` (`IDCOBRO`, `IDORDEN`, `FECHA`, `CANTIDAD`, `DESCRIPCION`) VALUES
+INSERT INTO `cobro` (`IDCOBRO`, `IDORDEN`, `FECHA`, `CANTIDAD`, `DESCRIPCION`) VALUES
 (1, 1, '2013-05-23 09:32:04', 0, 'Primer Cobro'),
-(2, 1, '2013-05-23 09:34:08', 35.5, 'Adelanto Pagado, Saldo 20Bs'),
-(3, 1, '2013-05-23 09:34:43', 20, 'Saldo Cancelado'),
-(4, 2, '2013-05-23 09:35:28', 100, 'Motivo de adelanto, saldo 50Bs.'),
+(2, 2, '2013-05-23 09:34:08', 35.5, 'Adelanto Pagado, Saldo 20Bs'),
+(3, 3, '2013-05-23 09:34:43', 20, 'Saldo Cancelado'),
+(4, 3, '2013-05-23 09:35:28', 100, 'Motivo de adelanto, saldo 50Bs.'),
 (5, 2, '2013-05-23 09:35:39', 50, 'Total Pagado');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `INSUMO`
+-- Estructura de tabla para la tabla `insumo`
 --
 
-CREATE TABLE IF NOT EXISTS `INSUMO` (
+CREATE TABLE IF NOT EXISTS `insumo` (
   `IDINSUMO` int(8) NOT NULL AUTO_INCREMENT,
   `IDORDEN` int(11) NOT NULL,
   `IDPROVEEDOR` int(11) NOT NULL,
@@ -134,10 +135,10 @@ CREATE TABLE IF NOT EXISTS `INSUMO` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `INSUMO`
+-- Volcado de datos para la tabla `insumo`
 --
 
-INSERT INTO `INSUMO` (`IDINSUMO`, `IDORDEN`, `IDPROVEEDOR`, `NOMBRE`, `FECHA`, `DESCRIPCION`) VALUES
+INSERT INTO `insumo` (`IDINSUMO`, `IDORDEN`, `IDPROVEEDOR`, `NOMBRE`, `FECHA`, `DESCRIPCION`) VALUES
 (1, 0, 0, 'Reactivos', '0000-00-00 00:00:00', 'Para el analisis de Rutina'),
 (2, 1, 0, 'Material A', '0000-00-00 00:00:00', 'Para Rutina'),
 (3, 2, 1, 'Material A', '0000-00-00 00:00:00', ''),
@@ -149,10 +150,10 @@ INSERT INTO `INSUMO` (`IDINSUMO`, `IDORDEN`, `IDPROVEEDOR`, `NOMBRE`, `FECHA`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `MEDICO`
+-- Estructura de tabla para la tabla `medico`
 --
 
-CREATE TABLE IF NOT EXISTS `MEDICO` (
+CREATE TABLE IF NOT EXISTS `medico` (
   `IDMEDICO` int(8) NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(50) NOT NULL,
   `EMAIL` varchar(50) DEFAULT NULL,
@@ -161,10 +162,10 @@ CREATE TABLE IF NOT EXISTS `MEDICO` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `MEDICO`
+-- Volcado de datos para la tabla `medico`
 --
 
-INSERT INTO `MEDICO` (`IDMEDICO`, `NOMBRE`, `EMAIL`, `TELEFONO`) VALUES
+INSERT INTO `medico` (`IDMEDICO`, `NOMBRE`, `EMAIL`, `TELEFONO`) VALUES
 (1, 'Juan Perez', 'prueba@prueba.com', '4123456'),
 (2, 'Fernado Nogales', 'fernandonogales@gmail.com', '4123456'),
 (3, 'Patricia Soliz', 'patriciasoliz@gmail.com', '4123456'),
@@ -176,10 +177,10 @@ INSERT INTO `MEDICO` (`IDMEDICO`, `NOMBRE`, `EMAIL`, `TELEFONO`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ORDEN`
+-- Estructura de tabla para la tabla `orden`
 --
 
-CREATE TABLE IF NOT EXISTS `ORDEN` (
+CREATE TABLE IF NOT EXISTS `orden` (
   `IDORDEN` int(8) NOT NULL AUTO_INCREMENT,
   `IDUSUARIO` int(11) NOT NULL,
   `IDMEDICO` int(11) NOT NULL,
@@ -195,53 +196,49 @@ CREATE TABLE IF NOT EXISTS `ORDEN` (
   KEY `FK_MEDICO_ORDEN` (`IDMEDICO`),
   KEY `FK_ORDEN_PACIENTE` (`IDPACIENTE`),
   KEY `FK_USUARIO_ORDEN` (`IDUSUARIO`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `ORDEN`
+-- Volcado de datos para la tabla `orden`
 --
 
-INSERT INTO `ORDEN` (`IDORDEN`, `IDUSUARIO`, `IDMEDICO`, `IDPACIENTE`, `FECHAPEDIDO`, `DESCRIPCIONORDEN`, `MATERIAL`, `ESTADO`, `FECHAENTREGA`, `TOTAL`, `SALDO`) VALUES
+INSERT INTO `orden` (`IDORDEN`, `IDUSUARIO`, `IDMEDICO`, `IDPACIENTE`, `FECHAPEDIDO`, `DESCRIPCIONORDEN`, `MATERIAL`, `ESTADO`, `FECHAENTREGA`, `TOTAL`, `SALDO`) VALUES
 (1, 4, 1, 1, '2013-05-14 09:00:00', 'Analisis de Rutina', 'Sangre', 0, NULL, 30, 30),
-(2, 4, 2, 2, '2013-05-14 14:00:00', 'Analisis de Rutina', 'Sangre', 1, NULL, 20, 20),
-(3, 4, 3, 3, '2013-05-14 16:30:00', 'N/A', 'Sangre', 1, NULL, 100, 100);
+(2, 4, 2, 9, '2013-05-14 14:00:00', 'Analisis de Rutina', 'Sangre', 0, NULL, 20, 20),
+(3, 4, 3, 10, '2013-05-14 16:30:00', 'N/A', 'Sangre', 1, NULL, 100, 100);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `PACIENTE`
+-- Estructura de tabla para la tabla `paciente`
 --
 
-CREATE TABLE IF NOT EXISTS `PACIENTE` (
+CREATE TABLE IF NOT EXISTS `paciente` (
   `IDPACIENTE` int(8) NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(50) NOT NULL,
+  `APELLIDO` varchar(20) NOT NULL,
   `EDAD` int(11) NOT NULL,
   `SEXO` varchar(1) NOT NULL,
   `TELEFONO` varchar(1024) NOT NULL,
   `DESCRIPCION` varchar(1024) NOT NULL,
   PRIMARY KEY (`IDPACIENTE`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `PACIENTE`
+-- Volcado de datos para la tabla `paciente`
 --
 
-INSERT INTO `PACIENTE` (`IDPACIENTE`, `NOMBRE`, `EDAD`, `SEXO`, `TELEFONO`, `DESCRIPCION`) VALUES
-(1, 'Mario Solares', 15, 'M', '1', ''),
-(2, 'Fernanda Ramirez', 24, 'F', '4123456', ''),
-(3, 'Fernanda Gonzales', 24, 'F', '4123456', ''),
-(4, 'Patricia Rocabado', 34, 'F', '4123456', ''),
-(5, 'Roberto Aguilar', 40, 'M', '4123456', ''),
-(6, 'Gabriel Machia', 40, 'M', '4123456', ''),
-(7, 'Mariana Villa', 34, 'F', '4123456', '- No Fumaterica\r\n- Diabetes');
+INSERT INTO `paciente` (`IDPACIENTE`, `NOMBRE`, `APELLIDO`, `EDAD`, `SEXO`, `TELEFONO`, `DESCRIPCION`) VALUES
+(10, 'Jose', 'Gonzales', 45, 'M', '4560638', ''),
+(9, 'Marcela', 'Sainz', 18, 'F', '44264456', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `PROVEEDOR`
+-- Estructura de tabla para la tabla `proveedor`
 --
 
-CREATE TABLE IF NOT EXISTS `PROVEEDOR` (
+CREATE TABLE IF NOT EXISTS `proveedor` (
   `IDPROVEEDOR` int(8) NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(50) NOT NULL,
   `DIRECCION` varchar(150) DEFAULT NULL,
@@ -252,19 +249,19 @@ CREATE TABLE IF NOT EXISTS `PROVEEDOR` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `PROVEEDOR`
+-- Volcado de datos para la tabla `proveedor`
 --
 
-INSERT INTO `PROVEEDOR` (`IDPROVEEDOR`, `NOMBRE`, `DIRECCION`, `EMAIL`, `TELEFONO`, `DESCRIPCION`) VALUES
+INSERT INTO `proveedor` (`IDPROVEEDOR`, `NOMBRE`, `DIRECCION`, `EMAIL`, `TELEFONO`, `DESCRIPCION`) VALUES
 (1, 'Inti', 'Quillacollo', 'inti@inti.com', '4123456', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `RANGO`
+-- Estructura de tabla para la tabla `rango`
 --
 
-CREATE TABLE IF NOT EXISTS `RANGO` (
+CREATE TABLE IF NOT EXISTS `rango` (
   `IDRANGO` int(8) NOT NULL AUTO_INCREMENT,
   `IDCATEGORIA` int(11) NOT NULL,
   `NOMBRE` varchar(50) NOT NULL,
@@ -277,10 +274,10 @@ CREATE TABLE IF NOT EXISTS `RANGO` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 --
--- Dumping data for table `RANGO`
+-- Volcado de datos para la tabla `rango`
 --
 
-INSERT INTO `RANGO` (`IDRANGO`, `IDCATEGORIA`, `NOMBRE`, `DESCRIPCION`, `MINIMO`, `MAXIMO`, `UNIDAD`) VALUES
+INSERT INTO `rango` (`IDRANGO`, `IDCATEGORIA`, `NOMBRE`, `DESCRIPCION`, `MINIMO`, `MAXIMO`, `UNIDAD`) VALUES
 (1, 1, 'Hombre En Condiciones Normales', 'Sexo Masculino, Independiente de Edad, En condiciones normales', 74, 106, 'mg/dl'),
 (2, 1, 'Mujer En Condiciones Normales', 'Sexo Femenino, Independiente de Edad, En condiciones normales', 74, 106, 'mg/dl'),
 (3, 2, 'Mujer En Condiciones Normales', 'Sexo Femenino, Independiente de Edad, En condiciones normales', 6.6, 8.6, '%'),
@@ -330,10 +327,10 @@ INSERT INTO `RANGO` (`IDRANGO`, `IDCATEGORIA`, `NOMBRE`, `DESCRIPCION`, `MINIMO`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `RESULTADO`
+-- Estructura de tabla para la tabla `resultado`
 --
 
-CREATE TABLE IF NOT EXISTS `RESULTADO` (
+CREATE TABLE IF NOT EXISTS `resultado` (
   `IDRESULTADO` int(8) NOT NULL AUTO_INCREMENT,
   `IDRANGO` int(11) DEFAULT NULL,
   `IDORDEN` int(11) NOT NULL,
@@ -345,17 +342,17 @@ CREATE TABLE IF NOT EXISTS `RESULTADO` (
   KEY `FK_ORDEN_RESULTADO` (`IDORDEN`),
   KEY `FK_RESULTADO_CATEGORIA` (`IDCATEGORIA`),
   KEY `FK_RESULTADO_RANGO` (`IDRANGO`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `RESULTADO`
+-- Volcado de datos para la tabla `resultado`
 --
 
-INSERT INTO `RESULTADO` (`IDRESULTADO`, `IDRANGO`, `IDORDEN`, `IDCATEGORIA`, `RESULTADO`, `DESCRIPCION`, `COSTO`) VALUES
+INSERT INTO `resultado` (`IDRESULTADO`, `IDRANGO`, `IDORDEN`, `IDCATEGORIA`, `RESULTADO`, `DESCRIPCION`, `COSTO`) VALUES
 (1, NULL, 1, 30, NULL, NULL, 10),
 (2, NULL, 1, 31, NULL, NULL, 10),
 (3, NULL, 1, 32, NULL, NULL, 10),
-(4, NULL, 2, 31, NULL, NULL, 10),
+(4, 30, 2, 31, 0, 'wd', 10),
 (5, NULL, 2, 32, NULL, NULL, 10),
 (6, 33, 3, 35, 12, '', 45),
 (7, 34, 3, 36, 23, 'Todo Ok!', 35),
@@ -364,26 +361,23 @@ INSERT INTO `RESULTADO` (`IDRESULTADO`, `IDRANGO`, `IDORDEN`, `IDCATEGORIA`, `RE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `SECCION`
+-- Estructura de tabla para la tabla `seccion`
 --
 
-CREATE TABLE IF NOT EXISTS `SECCION` (
+CREATE TABLE IF NOT EXISTS `seccion` (
   `IDSECCION` int(8) NOT NULL AUTO_INCREMENT,
   `NOMBRESECCION` varchar(50) NOT NULL,
   PRIMARY KEY (`IDSECCION`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `SECCION`
+-- Volcado de datos para la tabla `seccion`
 --
 
-INSERT INTO `SECCION` (`IDSECCION`, `NOMBRESECCION`) VALUES
+INSERT INTO `seccion` (`IDSECCION`, `NOMBRESECCION`) VALUES
 (1, 'Quimica Sanguinea'),
 (2, 'Perfil Lipidico'),
 (3, 'Perfil Hepatico'),
-(5, 'perfil lipidico'),
-(4, 'quimica sanguinea'),
-(6, 'perfil hepatico'),
 (7, 'Hormonas'),
 (8, 'perfil reumatoide'),
 (9, 'Electrolitos'),
@@ -394,10 +388,10 @@ INSERT INTO `SECCION` (`IDSECCION`, `NOMBRESECCION`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `USUARIO`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `USUARIO` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `IDUSUARIO` int(8) NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(50) NOT NULL,
   `APELLIDO` varchar(50) NOT NULL,
@@ -407,17 +401,19 @@ CREATE TABLE IF NOT EXISTS `USUARIO` (
   `PASSWORD` varchar(50) NOT NULL,
   `TIPOUSUARIO` int(11) NOT NULL,
   PRIMARY KEY (`IDUSUARIO`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `USUARIO`
+-- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `USUARIO` (`IDUSUARIO`, `NOMBRE`, `APELLIDO`, `CI`, `TELEFONO`, `LOGIN`, `PASSWORD`, `TIPOUSUARIO`) VALUES
+INSERT INTO `usuario` (`IDUSUARIO`, `NOMBRE`, `APELLIDO`, `CI`, `TELEFONO`, `LOGIN`, `PASSWORD`, `TIPOUSUARIO`) VALUES
 (1, 'diego', 'landa', 4529947, '4281228', 'diego', '.diego', 0),
 (2, 'Administrador', 'Administrador', 1234567, '', 'admin', '.admin', 0),
-(3, '', '', 0, '', 'secretaria1', '.secretaria1', 1),
 (4, 'Secretaria', 'Secretaria', 1234567, '4281228', 'secretaria', '.secretaria', 1),
 (5, 'tecnico', 'tecnico', 1234567, '4281228', 'tecnico', '.tecnico', 2),
-(6, 'Prueba', 'Prueba', 1234567, '4123456', 'prueba', '.prueba', 0),
-(7, 'Juan', 'Garcia', 1234567, '4123456', 'gjuan', '.gjuan', 2);
+(8, 'Paola', 'Escobar', 4538881, '4426440', 'andrea', 'secretaria', 1);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

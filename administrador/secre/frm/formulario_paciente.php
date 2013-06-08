@@ -7,7 +7,15 @@
 		  $obj->set_rule(array(
 		      'alphabet' => array(' ','error','Por Favor Solamente Letras'),
 		      'required' => array('error', 'este campo es requerido!'),
-		      'length'     =>  array(3,100,'error','El valor debe estar entre 3 y 60 caracteres'),
+		      'length'     =>  array(3,20,'error','El valor debe estar entre 3 y 20 caracteres'),
+	   ));
+	     $form->add('label', 'apellido_paciente', 'apellido', 'Apellido:');
+		$obj = $form->add('text', 'apellido', '', array('placeholder' => 'Apellido del Paciente'));
+	       // set rules
+		  $obj->set_rule(array(
+		      'alphabet' => array(' ','error','Por Favor Solamente Letras'),
+		      'required' => array('error', 'este campo es requerido!'),
+		      'length'     =>  array(3,15,'error','El valor debe estar entre 3 y 15 caracteres'),
 	   ));
       //	edad del paciente
 	 $form->add('label', 'edad_paciente', 'edad', 'Edad:');
@@ -50,12 +58,13 @@
 	  // show result
 	       $idpaciente = $_POST['idpaciente'];
            $nombre = $_POST['nombre'];
+	   $apellido = $_POST['apellido'];
            $edad = $_POST['edad'];
 	       $sexo = $_POST['sexo'];
 	       $telefono = $_POST['telefono'];
 	       $descripcion = $_POST['descripcion'];
 	       
-			$query->dbInsert(array('nombre'=>$nombre,'edad'=>$edad,'sexo'=>$sexo,'telefono'=>$telefono,'descripcion'=>$descripcion),'paciente');
+			$query->dbInsert(array('nombre'=>$nombre,'apellido'=>$apellido,'edad'=>$edad,'sexo'=>$sexo,'telefono'=>$telefono,'descripcion'=>$descripcion),'paciente');
 			
 			echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>El Paciente Se Registro Satisfactoriamente.',  showCloseButton: true }); }); </script>";
 			
