@@ -7,25 +7,25 @@
     $query = new query;
     
     $form = new Zebra_Form('formrango');
-	   $count++;
-	   $rangos= $query->getRowsArray("idrango, nombre, nombrecategoria", "rango, categoria"," WHERE categoria.idcategoria = rango.idcategoria AND CATEGORIA.IDCATEGORIA IN ( SELECT IDCATEGORIA FROM RESULTADO WHERE IDORDEN = ".$idorden." ) ORDER BY categoria.nombrecategoria");
-	   
-        $array;
+	   //$count++;
+	   $rangos= $query->getRowsArray("idrango, nombre, nombrecategoria", "rango, categoria"," WHERE categoria.idcategoria = rango.idcategoria AND categoria.idcategoria IN ( SELECT idcategoria FROM resultado WHERE idorden = ".$idorden." ) ORDER BY categoria.nombrecategoria");   
+	
+	 $array;
         foreach($rangos as $key){
             $array[$key['idrango']] = $key['nombrecategoria']." - ".$key['nombre'];
         }
 		
-		$resultado_categoria= $query->getRowsArray("IDRESULTADO, IDCATEGORIA", "RESULTADO", " WHERE IDORDEN = ".$idorden);
+		$resultado_categoria= $query->getRowsArray("idresultado, idcategoria", "resultado", " WHERE idorden = ".$idorden);
 		$arrayresultado_categoria;
         foreach($resultado_categoria as $key){
-            $arrayresultado_categoria[$key['IDCATEGORIA']] = $key['IDRESULTADO'];
+            $arrayresultado_categoria[$key['idcategoria']] = $key['idresultado'];
         }
 		//print_r($arrayresultado_categoria);
 		
-		$rango_categoria= $query->getRowsArray("idrango, categoria.idcategoria as IDCATEGORIA", "rango, categoria"," WHERE categoria.idcategoria = rango.idcategoria AND CATEGORIA.IDCATEGORIA IN ( SELECT IDCATEGORIA FROM RESULTADO WHERE IDORDEN = ".$idorden." ) ORDER BY categoria.nombrecategoria");
+		$rango_categoria= $query->getRowsArray("idrango, categoria.idcategoria as idcategoria", "rango, categoria"," WHERE categoria.idcategoria = rango.idcategoria AND categoria.idcategoria IN ( SELECT idcategoria FROM resultado WHERE idorden = ".$idorden." ) ORDER BY categoria.nombrecategoria");
 		$arrayrango_categoria;
         foreach($rango_categoria as $key){
-            $arrayrango_categoria[$key['idrango']] = $key['IDCATEGORIA'];
+            $arrayrango_categoria[$key['idrango']] = $key['idcategoria'];
         }
 		//print_r($arrayrango_categoria);
 
@@ -61,7 +61,7 @@
 			$categoria;
 			$fila;
 			
-            $query->dbUpdate(array('idrango'=>$idrango,'resultado'=>$resultado,'descripcion'=>$descripcion),'resultado','WHERE IDRESULTADO = '.$fila);
+            $query->dbUpdate(array('idrango'=>$idrango,'resultado'=>$resultado,'descripcion'=>$descripcion),'resultado','WHERE idresultado = '.$fila);
 			
 			echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>El Resultado Se Registro Satisfactoriamente.',  showCloseButton: true }); }); </script>";
 			
@@ -95,7 +95,7 @@
             
 			if ( $ok == 1 ){
 			
-				$query->dbUpdate(array('ESTADO'=>1 ),'orden','WHERE IDORDEN = '.$idorden);
+				$query->dbUpdate(array('estado'=>1 ),'orden','WHERE idorden = '.$idorden);
 				
 				echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Registro...<br><br>El Analisis Fue Entregado A Secretaria.',  showCloseButton: true }); }); </script>";
 				

@@ -7,27 +7,27 @@
     switch($accion){
         case 'analisis':
             $titulos = array('ID', 'Nombre', 'Operaciones');
-            $filas = $query->getRowsArray('*','SECCION');
+            $filas = $query->getRowsArray('*','seccion');
             break;
         case 'categoria':
             $titulos = array('ID','Nombre','Costo','Descripcion', 'Operaciones');
-            $filas = $query->getRowsArray('IDCATEGORIA,NOMBRECATEGORIA,COSTO,DESCRIPCIONCATEGORIA','CATEGORIA');
+            $filas = $query->getRowsArray('idcategoria,nombrecategoria,costo,descripcioncategoria','categoria');
             break;
         case 'paciente':
-            $titulos = array('ID', 'Nombre', 'Edad', 'Telefono', 'Operaciones' );
-            $filas = $query->getRowsArray('IDPACIENTE, NOMBRE, EDAD, TELEFONO','PACIENTE');
+            $titulos = array('ID', 'Nombre', 'Apellido', 'Edad', 'Telefono', 'Operaciones' );
+            $filas = $query->getRowsArray('idpaciente, nombre,apellido, edad, telefono','paciente');
             break;
 		case 'medico':
             $titulos = array('ID', 'Nombre', 'Edad', 'Telefono', 'Operaciones' );
-            $filas = $query->getRowsArray('IDMEDICO, NOMBRE, EMAIL, TELEFONO','MEDICO');
+            $filas = $query->getRowsArray('idmedico, nombre, email, telefono','medico');
             break;
         case 'usuarios':
             $titulos = array('ID', 'Nombre','Apellido','DNI','Telefono','Email','Login', 'Operaciones');
-            $filas = $query->getRowsArray('IDUSUARIO, NOMBRE,APELLIDO,CI,TELEFONO,EMAIL,LOGIN','USUARIO');
+            $filas = $query->getRowsArray('idusuario, nombre,apellido,ci,telefono,email,login','usuario');
             break;
         case 'proveedor':
             $titulos = array('ID', 'Nombre','Direccion','Email','Telefono','Descripcion', 'Operaciones');
-            $filas = $query->getRowsArray('IDPROVEEDOR, NOMBRE,DIRECCION,EMAIL,TELEFONO,DESCRIPCION','PROVEEDOR');
+            $filas = $query->getRowsArray('idproveedor, nombre,direccion,email,telefono,descripcion','proveedor');
             break;
     }
     //print_r($filas);

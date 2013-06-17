@@ -11,16 +11,16 @@
 
     switch($accion){
         case 'paciente':
-            $titulos = array('ID', 'Nombre', 'Edad', 'Telefono' );
-            $filas = $query->getRowsArray('IDPACIENTE, NOMBRE, EDAD, TELEFONO','PACIENTE');
+            $titulos = array('ID', 'Nombre', 'Apellido', 'Edad', 'Telefono' );
+            $filas = $query->getRowsArray('idpaciente, nombre,apellido, edad, telefono','paciente');
             break;
 		case 'medico':
             $titulos = array('ID', 'Nombre', 'Email', 'Telefono' );
-            $filas = $query->getRowsArray('IDMEDICO, NOMBRE, EMAIL, TELEFONO','MEDICO');
+            $filas = $query->getRowsArray('idmedico, nombre, email, telefono','medico');
             break;
 		case 'orden':
             $titulos = array('ID', 'Fecha', 'Estado', 'Descripcion', 'Material' );
-            $filas = $query->getRowsArray('IDORDEN, FECHAPEDIDO, ESTADO, DESCRIPCIONORDEN, MATERIAL','ORDEN',' ORDER BY ESTADO ASC');
+            $filas = $query->getRowsArray('idorden, fechapedido, estado, descripcionorden, material','orden',' ORDER BY estado ASC');
 			$especial = true;
 			$columna = 2;
             break;
