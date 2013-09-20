@@ -16,10 +16,10 @@ switch($_SERVER['HTTP_HOST'])
 	default:
 		ini_set("session.cache_expire","180");
 		ini_set("session.gc_maxlifetime","3600");
-		$_cfg['host'] = '10.0.0.9';
-		$_cfg['user'] = 'root';
-		$_cfg['pass'] = '';
-		$_cfg['db'] = 'laboratorio';
+		$_cfg['host'] = '50.28.39.88';
+		$_cfg['user'] = 'kudoside_paola';
+		$_cfg['pass'] = 'pao.andy123';
+		$_cfg['db'] = 'kudoside_laboratorio';
 		break;
 }
 
@@ -67,18 +67,18 @@ $pdf->SetFont('Times','',12);
 //Consulta BD
 
 $query = new query;
-$resultado = $query->getRows('*','seccion, categoria_analisis', 'ORDER BY seccion.nombreseccion');
+$resultado = $query->getRows('*','seccion, categoria', 'WHERE seccion.idseccion = categoria.idseccion ORDER BY seccion.nombreseccion, categoria.nombrecategoria');
 
 $seccion = "";
 while($temp = mysql_fetch_assoc($resultado)){
-    $siguienteSeccion = $temp['nombreseccion'];
+    $siguienteSeccion = $temp['NOMBRESECCION'];
     if ( $siguienteSeccion != $seccion ){
         $pdf->SetFont('Times','B',12);
         $pdf->Cell(10,10,$siguienteSeccion,0,1);
         $seccion = $siguienteSeccion;
     }
     $pdf->SetFont('Times','',12);
-    $pdf->Cell(10,10," + ".$temp['nombrecategoria'],0,1);
+    $pdf->Cell(10,10," + ".$temp['NOMBRECATEGORIA'].".- ".$temp['DESCRIPCIONCATEGORIA'],0,1);
 }
 
 //for($i=1;$i<=40;$i++)

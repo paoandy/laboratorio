@@ -6,12 +6,12 @@
 
     switch($accion){
         case 'paciente':
-            $titulos = array('ID', 'Nombre','Apellido', 'Edad', 'Telefono' );
-            $filas = $query->getRowsArray('idpaciente, nombre, apellido, edad, telefono','paciente');
+            $titulos = array('ID', 'Nombre', 'Edad', 'Telefono' );
+            $filas = $query->getRowsArray('IDPACIENTE, NOMBRE, EDAD, TELEFONO','paciente');
             break;
-	case 'medico':
+		case 'medico':
             $titulos = array('ID', 'Nombre', 'Email', 'Telefono' );
-            $filas = $query->getRowsArray('idmedico, nombre, email, telefono','medico');
+            $filas = $query->getRowsArray('IDMEDICO, NOMBRE, EMAIL, TELEFONO','medico');
             break;
     }
     //print_r($filas);

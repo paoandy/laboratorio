@@ -34,19 +34,19 @@ require_once('../../lib/query.lib.php');
     $consulta = new query;
     switch($accion){
         case 'medico':
-            $consulta->dbDelete('medico','WHERE idmedico='.$id);
+            $consulta->dbDelete('MEDICO','WHERE IDMEDICO='.$id);
             header("Location:../lista.php?accion=medico&msj='Registro Eliminado'");
             break;
 	case 'paciente':
-            $consulta->dbDelete('paciente','WHERE idpaciente='.$id);
+            $consulta->dbDelete('PACIENTE','WHERE IDPACIENTE='.$id);
             header("Location:../lista.php?accion=paciente&msj='Registro Eliminado'");
             break;
 	case 'proveedor':
-            $consulta->dbDelete('proveedor','WHERE idproveedor='.$id);
+            $consulta->dbDelete('PROVEEDOR','WHERE IDPROVEEDOR='.$id);
             header("Location:../lista.php?accion=proveedor&msj='Registro Eliminado'");
             break;
 	case 'usuarios':
-            $consulta->dbDelete('usuario','WHERE idusuario='.$id);
+            $consulta->dbDelete('USUARIO','WHERE IDUSUARIO='.$id);
             header("Location:../lista.php?accion=usuarios&msj='Registro Eliminado'");
             break;
     }

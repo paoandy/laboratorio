@@ -16,13 +16,25 @@ switch($_SERVER['HTTP_HOST'])
 	default:
 		ini_set("session.cache_expire","180");
 		ini_set("session.gc_maxlifetime","3600");
-		$_cfg['host'] = '10.0.0.9';
-		$_cfg['user'] = 'root';
-		$_cfg['pass'] = '';
-		$_cfg['db'] = 'laboratorio';
+		$_cfg['host'] = '50.28.39.88';
+		$_cfg['user'] = 'kudoside_paola';
+		$_cfg['pass'] = 'pao.andy123';
+		$_cfg['db'] = 'kudoside_laboratorio';
 		break;
 }
-
+/*
+	$database="kudoside_laboratorio";
+	$mysql_user = "kudoside_paola";
+	$mysql_password = "pao.andy123"; 
+	$mysql_host = "50.28.39.88";
+	$mysql_table_prefix = "";
+	
+    $con = mysql_connect($mysql_host,$mysql_user,$mysql_password);
+    if (!$con) {
+        die('Could not connect: ' . mysql_error());
+    }
+    mysql_select_db($database);
+die();*/
 mysql_connect($_cfg['host'],$_cfg['user'],$_cfg['pass']) or die(mysql_error());
 mysql_select_db($_cfg['db']) or die(mysql_error());
 

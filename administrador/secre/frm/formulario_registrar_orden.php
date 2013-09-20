@@ -1,7 +1,7 @@
 <?php
     $query = new query;
 
-    $pacientes = $query->getRowsArray('idpaciente, nombre','paciente');
+    $pacientes = $query->getRowsArray('IDPACIENTE, NOMBRE', 'paciente');
     //print_r($pacientes);
     $medicos = $query->getRowsArray('*', 'medico');
     $secciones = $query->getRowsArray('*', 'seccion');
@@ -11,28 +11,28 @@
 
     //print_r($_POST);
 	
-	if ( isset($_POST['idpaciente']) ){
-		$idusuario = $_POST['idusuario'];
-		$idpaciente = $_POST['idpaciente'];
-		$idmedico = $_POST['idmedico'];
-		$descripcion = $_POST['desscripcion'];
-		$material = $_POST['material'];
+	if ( isset($_POST['IDPACIENTE']) ){
+		$idusuario = $_POST['IDUSUARIO'];
+		$idpaciente = $_POST['IDPACIENTE'];
+		$idmedico = $_POST['IDMEDICO'];
+		$descripcion = $_POST['DESCRIPCION'];
+		$material = $_POST['MATERIAL'];
 		$fechaorden = date('Y-m-d');
 		$total = $_POST['total'];
 		$saldo = $_POST['total'];
 		
-		$query->dbInsert(array('iduasuario'=>$idusuario, 'idpaciente'=>$idpaciente, 'idmedico'=>$idmedico, 'descripcionorden'=>$descripcion, 'material'=>$material, 'fechapedido'=>$fechaorden, 'estado'=>'0',
-								'total'=>$total, 'saldo'=>$saldo),'orden');
+		$query->dbInsert(array('IDUSUARIO'=>$idusuario, 'IDPACIENTE'=>$idpaciente, 'IDMEDICO'=>$idmedico, 'DESCRIPCIONORDEN'=>$descripcion, 'MATERIAL'=>$material, 'FECHAPEDIDO'=>$fechaorden, 'ESTADO'=>'0',
+								'TOTAL'=>$total, 'SALDO'=>$saldo),'orden');
 		
 		//OJO revisar
-		$idorden = $query->getRow('*','orden', 'ORDER BY idorden DESC');
-		$idorden = $idorden['idorden'];
+		$idorden = $query->getRow('*','ORDEN', 'ORDER BY IDORDEN DESC');
+		$idorden = $idorden['IDORDEN'];
 		
 		$realizar = $_POST['realizar'];
 		foreach($realizar as $codigo){
 			$codigo;
 			$costo = $_POST['costo'][$codigo];
-			$query->dbInsert(array('idorden'=>$idorden, 'idcategoria'=>$codigo, 'costo'=>$costo ),'resultado');
+			$query->dbInsert(array('IDORDEN'=>$idorden, 'IDCATEGORIA'=>$codigo, 'COSTO'=>$costo ),'resultado');
 		}
 		
 		echo "<script> $(document).ready(function() { Messenger().post({ message: 'Nuevo Orden...<br><br>La Orden Fue Registrada Satisfactoriamente.',  showCloseButton: true }); }); </script>";
@@ -43,9 +43,9 @@
     	<center><h1 style="padding:20px;">Registrar Orden</h1></center>
         <fieldset style="margin:20px; padding:20px;">
             <legend>Datos Paciente</legend>
-            Paciente: <select id="selectPaciente" style="width:250px;" name="idpaciente"><?php crearLista($pacientes, 'idpaciente', 'nombre'); ?></select>
-            Medico: <select id="selectMedico" style="width:250px;" name="idmedico"><?php crearLista($medicos, 'idmedico', 'nombre'); ?></select>
-            <input type="hidden" name="idusuario" value="<?php echo $_SESSION['idusuario'];?>" />
+            Paciente: <select id="selectPaciente" style="width:250px;" name="IDPACIENTE"><?php crearLista($pacientes, 'IDPACIENTE', 'NOMBRE'); ?></select>
+            Medico: <select id="selectMedico" style="width:250px;" name="IDMEDICO"><?php crearLista($medicos, 'IDMEDICO', 'NOMBRE'); ?></select>
+            <input type="hidden" name="IDUSUARIO" value="<?php echo $_SESSION['idusuario'];?>" />
         </fieldset>
         <fieldset style="margin:20px; padding:20px; text-align: left; background: linear-gradient( 180deg, rgb(245,245,245) 25%, rgb(225,225,225), rgb(245,245,245) 75% ); border-radius:10px;">
             <legend>Datos Generales</legend>
@@ -61,9 +61,10 @@
                         echo "<div class='servicio'>";
                         echo "<h1>+ ".$seccion['NOMBRESECCION']."</h1>";
                         echo "<ul>";
-                             $subcategorias = $query->getRowsArray('*','categoria','WHERE idseccion ='.$seccion['IDSECCION']);
+                            $subcategorias = $query->getRowsArray('*','categoria','WHERE IDSECCION ='.$seccion['IDSECCION']);
                             foreach($subcategorias as $subcategoria){
-                                echo "<li><input class='check' type='checkbox' name='realizar[".$subcategoria['idcategoria']."]' value='".$subcategoria['idcategoria']."' data-codigo='".$subcategoria['idcategoria']."'/><span>".$subcategoria['nombrecategoria']." : </span>".                                   "<input class='costo' type='text' name='costo[".$subcategoria['idcategoria']."]' value='".$subcategoria['costo']."' data-codigo='".$subcategoria['idcategoria']."' disabled/><span>Bs.</span></li>";
+                                echo "<li><input class='check' type='checkbox' name='realizar[".$subcategoria['IDCATEGORIA']."]' value='".$subcategoria['IDCATEGORIA']."' data-codigo='".$subcategoria['IDCATEGORIA']."'/><span>".$subcategoria['NOMBRECATEGORIA']." : </span>".
+                                    "<input class='costo' type='text' name='costo[".$subcategoria['IDCATEGORIA']."]' value='".$subcategoria['COSTO']."' data-codigo='".$subcategoria['IDCATEGORIA']."' disabled/><span>Bs.</span></li>";
                             }
                         echo "</ul>";
                         echo "</div>";
