@@ -1,0 +1,116 @@
+@import url(http://fonts.googleapis.com/css?family=Averia+Gruesa+Libre);
+@import url(tabla.css);
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+legend{
+	cursor: pointer;
+}
+
+#backgroundFix{
+	width: 100%;
+	height: 100%;
+	z-index: -10;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	overflow: hidden;
+	background: linear-gradient( 180deg, rgb(255,255,255) 50%, rgb(225,225,225) );
+}
+
+.login{
+	position: absolute;
+	font-family: 'Averia Gruesa Libre', cursive;
+	width: 500px;
+	height: 300px;
+	top: 50%;
+	margin-top: -150px;
+	left: 50%;
+	margin-left: -250px;
+	box-shadow: 0px 0px  15px rgb(100,100,100);
+	border-radius: 100%;
+	display: table;
+	text-align: center;
+	cursor:pointer;
+}
+
+.login:hover{
+	background: rgb(56,134,193);
+	box-shadow: 0px 0px 35px rgb(50,50,50), inset 0px 0px  15px rgb(100,100,100);
+}
+
+.login>section{
+	display: table-cell;
+	vertical-align: middle;
+}
+.login img{
+	width: 50px;
+	height: 50px;
+}
+.login span{
+	margin: auto;
+	font-size: 48px;
+	display: inline;
+	line-height: 50px;
+}
+
+#contenido {
+	position:absolute;
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+	background: white;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: auto;
+	top:0;
+	left:0;
+}
+
+#contenido>section{
+	margin: 10px;
+}
+
+/*
+ * Tabla Servicios
+ */
+.servicio {
+	float: left;
+	margin: 10px;
+	text-align: left;
+	min-height: 150px;
+	min-width: 160px;
+	padding: 15px;
+	background: rgb(240,240,240);
+	box-shadow: 0px 0px 2px black;
+}
+
+.servicio:nth-child(2n) {
+	background: rgb(200,200,200);
+}
+
+.servicio ul {
+	list-style: none;
+	display: table;
+}
+.servicio li {
+	display: table-row;
+	vertical-align: middle
+}
+.servicio li input {
+	display: table-cell;
+	vertical-align: middle;
+}
+.servicio li input[type=checkbox] {
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+.servicio li span{
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0 5px 0 5px;
+}

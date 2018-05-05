@@ -1,0 +1,1 @@
+[24-Jun-2013 20:58:27 America/New_York] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to MySQL server on '10.0.0.9' (4) in /home/kudoside/public_html/laboratorio/administrador/admin/reportes/rptAnalisis.php on line 26
