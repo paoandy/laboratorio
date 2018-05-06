@@ -1,7 +1,7 @@
 <?php
 	$consulta = new query;
-	$ordenes = $consulta->getRowsArray('*', 'orden', 'WHERE ESTADO = 0');
-	$terminadas = $consulta->getRowsArray('*', 'orden', 'WHERE ESTADO = 1');
+	$ordenes = $consulta->getRowsArray('*', 'ORDEN', 'WHERE ESTADO = 0');
+	$terminadas = $consulta->getRowsArray('*', 'ORDEN', 'WHERE ESTADO = 1');
 	//print_r($ordenes);
 	
 	function crearListaOrden($array, $id, $contenido){
