@@ -3,7 +3,6 @@
 
     $secciones = $query->getRowsArray('*', 'SECCION');
 
-    //$secciones = $query->getRowsArray('*','seccion, categoria', 'WHERE seccion.idseccion = categoria.idseccion ORDER BY seccion.nombreseccion, categoria.nombrecategoria');
     $secciones = $query->getRowsArray('*','seccion', 'ORDER BY seccion.nombreseccion');
 ?>
 <form action="registrarorden.php" method="post">
