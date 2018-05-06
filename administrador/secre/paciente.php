@@ -1,4 +1,4 @@
-<?php require_once('lib/includeLibs.php'); ?>
+<?php require_once('../lib/autoload.php'); ?>
 <?php
 
     if (!isset($_SESSION['tipousuario']))
@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <?php include 'lib/includeHead.php'?>
+    <?php include '../lib/includeHead.php'?>
 </head>
 <body>
     <div id="backgroundFix"></div>
