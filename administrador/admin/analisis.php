@@ -4,11 +4,8 @@
     if (!isset($_SESSION['tipousuario']))
         header("Location:../index.php");
 
-    if ( $_SESSION['tipousuario'] != 2 )
+    if ( $_SESSION['tipousuario']!=0 )
         header("Location:../index.php?msj='Usted No Tiene Privilegios Para Ver Este Sitio'");
-
-    if ( !isset($_GET['accion']) )
-        header("Location:index.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,10 +30,7 @@
         <section id="main">
             <section id="contenido">
                 <section>
-                    <?php
-                        $accion = $_GET['accion'];
-                        include 'tpl/tabla.php';
-                    ?>
+                    <?php include 'frm/formulario_analisis.php';?>
                 </section>
             </section>
             <section id="opciones">
