@@ -1,18 +1,4 @@
 <?php
-/*
-    $con = mysql_connect("localhost","root","");
-    if (!$con) {
-        die('Could not connect: ' . mysql_error());
-    }
-    mysql_select_db("laboratorio", $con);
-
-    $exito = true;
-
-    $accion = $_POST['accion'];
-
-    $error = false;
-*/
-    
 	//vars
 	$subject = "Pedido de Orden de Laboratorio";
 	$to = 'diegolanda@msn.com';

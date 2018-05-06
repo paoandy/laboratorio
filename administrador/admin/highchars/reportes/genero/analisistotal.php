@@ -30,7 +30,7 @@
 		    },
 		    xAxis: {
 			categories: [";
-		while($temp = mysql_fetch_assoc($result))
+		while($temp = mysqli_fetch_assoc($result))
 			echo "'".$temp['SEXO']."',";
 			//'Africa', 'America', 'Asia', 'Europe', 'Oceania'
 			
@@ -79,7 +79,7 @@
 			
 		$result = $query->makequery("SELECT COUNT(IDPACIENTE) AS TOTAL, SEXO ".
 				"FROM paciente GROUP BY SEXO");
-		while($temp = mysql_fetch_assoc($result))
+		while($temp = mysqli_fetch_assoc($result))
 			echo $temp['TOTAL'].",";
 			//107, 31, 635, 203, 2
 	echo "]

@@ -30,7 +30,7 @@
 		    },
 		    xAxis: {
 			categories: [";
-		while($temp = mysql_fetch_assoc($result))
+		while($temp = mysqli_fetch_assoc($result))
 			echo "'".estadoAEtiqueta($temp['ESTADO'])."',";
 			//'Africa', 'America', 'Asia', 'Europe', 'Oceania'
 			
@@ -82,7 +82,7 @@
 			
 		$result = $query->makequery("SELECT COUNT(ESTADO) AS TOTAL,ESTADO".
 				" FROM `orden` GROUP BY ESTADO");
-		while($temp = mysql_fetch_assoc($result))
+		while($temp = mysqli_fetch_assoc($result))
 			echo $temp['TOTAL'].",";
 			//107, 31, 635, 203, 2
 	echo "]
