@@ -4,8 +4,8 @@
 	
 	$query = new query;
 	
-	$result = $query->makequery("SELECT COUNT(IDPACIENTE) AS TOTAL, SEXO ".
-				"FROM paciente GROUP BY SEXO");
+	$result = $query->makequery("SELECT COUNT(ESTADO) AS TOTAL,ESTADO".
+				" FROM orden GROUP BY ESTADO ");
 	
 ?>
 <html>
@@ -31,10 +31,13 @@
 		    xAxis: {
 			categories: [";
 		while($temp = mysqli_fetch_assoc($result))
-			echo "'".$temp['SEXO']."',";
+			echo "'".estadoAEtiqueta($temp['ESTADO'])."',";
 			//'Africa', 'America', 'Asia', 'Europe', 'Oceania'
 			
 	echo "],
+	
+	//
+	
 			title: {
 			    text: 'Analisis'
 			}
@@ -77,8 +80,8 @@
 			name: 'Totales',
 			data: [";
 			
-		$result = $query->makequery("SELECT COUNT(IDPACIENTE) AS TOTAL, SEXO ".
-				"FROM paciente GROUP BY SEXO");
+		$result = $query->makequery("SELECT COUNT(ESTADO) AS TOTAL,ESTADO".
+				" FROM `orden` GROUP BY ESTADO");
 		while($temp = mysqli_fetch_assoc($result))
 			echo $temp['TOTAL'].",";
 			//107, 31, 635, 203, 2
@@ -87,6 +90,15 @@
 		});
 	    });";
 	
+	function estadoAEtiqueta($estado)
+	{
+		if ($estado == 0)
+			return "Registrado";
+		if ($estado == 1)
+			return "Terminado";
+		if ($estado == 2)
+			return "Entregado";
+	}
 	?>
 
 	</script>
@@ -95,7 +107,7 @@
 <script src="../../js/highcharts.js"></script>
 <script src="../../js/modules/exporting.js"></script>
 
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="container" style="min-width: 310px; height: 200px; margin: 0 auto"></div>
 
 	</body>
 </html>

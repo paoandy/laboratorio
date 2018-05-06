@@ -1,37 +1,12 @@
 <?php
 session_start();
 
-if(isset($_SERVER['HTTPS']))
-	$protocol = 'https';
-else
-	$protocol = 'http';
-switch($_SERVER['HTTP_HOST'])
-{
-	case 'localhost':
-		$_cfg['host'] = '127.0.0.1';
-		$_cfg['user'] = 'root';
-		$_cfg['pass'] = '';
-		$_cfg['db'] = 'laboratorio';
-		break;
-	default:
-		ini_set("session.cache_expire","180");
-		ini_set("session.gc_maxlifetime","3600");
-		$_cfg['host'] = '50.28.39.88';
-		$_cfg['user'] = 'kudoside_paola';
-		$_cfg['pass'] = 'pao.andy123';
-		$_cfg['db'] = 'kudoside_laboratorio';
-		break;
-}
-
-mysql_connect($_cfg['host'],$_cfg['user'],$_cfg['pass']) or die(mysql_error());
-mysql_select_db($_cfg['db']) or die(mysql_error());
-
 require('../../lib/fpdf/fpdf.php');
 require('../../lib/query.lib.php');
 
 class PDF extends FPDF
 {
-// Cabecera de página
+// Cabecera de pï¿½gina
 function Header()
 {
 	// Logo
@@ -40,25 +15,25 @@ function Header()
 	$this->SetFont('Arial','B',12);
 	// Movernos a la derecha
 	$this->Cell(80);
-	// Título
+	// Tï¿½tulo
 	$this->Cell(60,20,'Analisis Disponibles En Laboratorio - '.date('d/m/y h:i:s'),0,0,'C');
-	// Salto de línea
+	// Salto de lï¿½nea
 	$this->Ln(20);
 }
 
-// Pie de página
+// Pie de pï¿½gina
 function Footer()
 {
-	// Posición: a 1,5 cm del final
+	// Posiciï¿½n: a 1,5 cm del final
 	$this->SetY(-15);
 	// Arial italic 8
 	$this->SetFont('Arial','I',8);
-	// Número de página
+	// Nï¿½mero de pï¿½gina
 	$this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
 }
 }
 
-// Creación del objeto de la clase heredada
+// Creaciï¿½n del objeto de la clase heredada
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
@@ -70,7 +45,7 @@ $query = new query;
 $resultado = $query->getRows('*','seccion, categoria', 'WHERE seccion.idseccion = categoria.idseccion ORDER BY seccion.nombreseccion, categoria.nombrecategoria');
 
 $seccion = "";
-while($temp = mysql_fetch_assoc($resultado)){
+while($temp = mysqli_fetch_assoc($resultado)){
     $siguienteSeccion = $temp['NOMBRESECCION'];
     if ( $siguienteSeccion != $seccion ){
         $pdf->SetFont('Times','B',12);
@@ -82,7 +57,7 @@ while($temp = mysql_fetch_assoc($resultado)){
 }
 
 //for($i=1;$i<=40;$i++)
-//	$pdf->Cell(20,10,'Imprimiendo línea número '.$i,0,1);
+//	$pdf->Cell(20,10,'Imprimiendo lï¿½nea nï¿½mero '.$i,0,1);
 
 
 

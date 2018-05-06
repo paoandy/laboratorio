@@ -31,7 +31,7 @@
 		    },
 		    xAxis: {
 			categories: [";
-		while($temp = mysql_fetch_assoc($result))
+		while($temp = mysqli_fetch_assoc($result))
 			echo "'".$temp['NOMBRECATEGORIA']."',";
 			//'Africa', 'America', 'Asia', 'Europe', 'Oceania'
 			
@@ -81,7 +81,7 @@
 		$result = $query->makequery("SELECT COUNT( resultado.IDCATEGORIA ) AS TOTAL, NOMBRECATEGORIA ".
 				"FROM resultado, categoria WHERE categoria.IDCATEGORIA = resultado.IDCATEGORIA ".
 				"GROUP BY resultado.IDCATEGORIA");
-		while($temp = mysql_fetch_assoc($result))
+		while($temp = mysqli_fetch_assoc($result))
 			echo $temp['TOTAL'].",";
 			//107, 31, 635, 203, 2
 	echo "]
