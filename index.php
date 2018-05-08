@@ -64,8 +64,8 @@
 									de excelencia
 								</h1>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.
-								</p>
+								Proporcionamos un servicio de análisis clínicos confiable y oportuno para auxiliar en el diagnóstico de patologías clínicas, sobre una base de ética profesional y alto compromiso con la calidad.
+									</p>
 								<a class="primary-btn2 mt-20 text-uppercase" href="#personal">Conocenos<span class="lnr lnr-arrow-right"></span></a>
 							</div>
 							<div class="col-lg-6 d-flex align-self-end img-right">
@@ -86,9 +86,10 @@
 									<span class="lnr lnr-rocket"></span>
 								</div>
 								<div class="desc">
-									<h4 class="text-uppercase">24/7 emergency</h4>
+									<h4 class="text-uppercase">SERVICIO DE EMERGENCIA</h4>
 									<p>
-										inappropriate behavior is often laughed off as “boys will be boys,” <br> women face higher conduct women face higher conduct.
+									Brindamos un servicio de Laboratorio oportuno e inmediato 365 dias del año,
+									 24 hrs del dia manteniendo confidencialidad en los resultados gracias a nuestro personal calificado  
 									</p>
 								</div>
 							</div>
@@ -97,10 +98,10 @@
 									<span class="lnr lnr-chart-bars"></span>
 								</div>
 								<div class="desc">
-									<h4 class="text-uppercase">X-Ray servicio</h4>
+									<h4 class="text-uppercase">EXTRACCION A DOMICILIO</h4>
 									<p>
-										inappropriate behavior is often laughed off as “boys will be boys,” <br> women face higher conduct women face higher conduct.
-									</p>
+									Nuestro personal visita su hogar para realizar la toma de muestras correspondientes;en fecha y hora coordinada. 
+									Velando por la comodidad de nuestros pacientes, pensada para las personas con dificultades para trasladarse o aquellas que por elección, prefieran la intimidad de su hogar a la hora de hacerse un estudio.
 								</div>
 							</div>
 							<div class="single-feature d-flex flex-row">
@@ -110,7 +111,7 @@
 								<div class="desc">
 									<h4 class="text-uppercase">Cuidado Intensivo</h4>
 									<p>
-										inappropriate behavior is often laughed off as “boys will be boys,” <br> women face higher conduct women face higher conduct.
+
 									</p>
 								</div>
 							</div>
@@ -121,9 +122,9 @@
 									<span class="lnr lnr-heart-pulse"></span>
 								</div>
 								<div class="desc">
-									<h4 class="text-uppercase">24/7 emergency</h4>
+									<h4 class="text-uppercase">QUIMICA SANGUINEA</h4>
 									<p>
-										inappropriate behavior is often laughed off as “boys will be boys,” <br> women face higher conduct women face higher conduct.
+									El estudio de química sanguínea suministra información al médico por medio de una serie de pruebas acerca del metabolismo en el cuerpo humano y el funcionamiento de ciertos órganos como el hígado y los riñones.
 									</p>
 								</div>
 							</div>
@@ -132,9 +133,9 @@
 									<span class="lnr lnr-paw"></span>
 								</div>
 								<div class="desc">
-									<h4 class="text-uppercase">X-Ray servicio</h4>
+									<h4 class="text-uppercase">COMO ESTAR PREPARADO</h4>
 									<p>
-										inappropriate behavior is often laughed off as “boys will be boys,” <br> women face higher conduct women face higher conduct.
+									Con frecuencia,al paciente se le solicitará que permanezca en ayunas entre 8-10 horas previas a la extracción dado que algunos valores del estudio pueden verse modificados con la toma de alimentos.
 									</p>
 								</div>
 							</div>
@@ -143,7 +144,7 @@
 									<span class="lnr lnr-users"></span>
 								</div>
 								<div class="desc">
-									<h4 class="text-uppercase">Intensive Care</h4>
+									<h4 class="text-uppercase">HORARIOS DE ATENCION</h4>
 									<p>
 										inappropriate behavior is often laughed off as “boys will be boys,” <br> women face higher conduct women face higher conduct.
 									</p>
@@ -164,24 +165,24 @@
 							<img class="img-fluid" src="img/about-img.jpg" alt="">
 						</div>
 						<div class="col-lg-6 col-md-12 about-right no-padding">
-							<h1>Book an <br> Appoinment</h1>
+							<h1>CONSULTA <br> TU CITA</h1>
 							<form class="booking-form" id="myForm" action="donate.php">
 								 	<div class="row">
 								 		<div class="col-lg-12 d-flex flex-column">
-							 				<input name="name" placeholder="Patient name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Patient name'" class="form-control mt-20" required="" type="text" required>
+							 				<input name="name" placeholder="Nombre paciente" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Patient name'" class="form-control mt-20" required="" type="text" required>
 								 		</div>
 							 			<div class="col-lg-6 d-flex flex-column">
-											<input name="phone" placeholder="Phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" class="form-control mt-20" required="" type="text" required>
+											<input name="phone" placeholder="Telefono" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" class="form-control mt-20" required="" type="text" required>
 										</div>
 										<div class="col-lg-6 d-flex flex-column">
-											<input id="datepicker2" name="app-date" class="single-in mt-20"  onblur="this.placeholder = 'Appoinment date'" type="text" placeholder="Appoinment date" required>
+											<input id="datepicker2" name="app-date" class="single-in mt-20"  onblur="this.placeholder = 'Appoinment date'" type="text" placeholder="datos extra" required>
 										</div>
 										<div class="col-lg-12 flex-column">
-											<textarea class="form-control mt-20" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+											<textarea class="form-control mt-20" name="message" placeholder="Mensaje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
 										</div>
 
 										<div class="col-lg-12 d-flex justify-content-end send-btn">
-											<button class="submit-btn primary-btn mt-20 text-uppercase ">confirm booking<span class="lnr lnr-arrow-right"></span></button>
+											<button class="submit-btn primary-btn mt-20 text-uppercase ">confirma tu cita<span class="lnr lnr-arrow-right"></span></button>
 										</div>
 
 										<div class="alert-msg"></div>
@@ -199,7 +200,7 @@
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-8 pb-80 header-text">
-							<h1>Our Consultants</h1>
+							<h1>PERSONAL DE LABORATORIO</h1>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> labore  et dolore magna aliqua.
 							</p>
