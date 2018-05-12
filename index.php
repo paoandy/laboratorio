@@ -202,7 +202,7 @@
 						<div class="col-md-8 pb-80 header-text">
 							<h1>PERSONAL DE LABORATORIO</h1>
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> labore  et dolore magna aliqua.
+								
 							</p>
 						</div>
 					</div>
