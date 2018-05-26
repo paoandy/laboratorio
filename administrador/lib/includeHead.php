@@ -1,14 +1,27 @@
+<!-- Required meta tags-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>SLCHL</title>
-    <link rel="stylesheet" href="../style/estilo.css" type="text/css"/>
-    <link rel="stylesheet" href="../lib/zebra/public/css/zebra_form.css">
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="../lib/zebra/public/javascript/zebra_form.js"></script>
-    <script type="text/javascript" src="../scripts/ajax.js"></script>
-    <link rel="stylesheet" type="text/css" href="../style/appleMenu/css/style.css"/>
-    <link rel="shortcut icon" href="../favicon.ico" />
-	
-    <link rel="stylesheet" href="../scripts/messenger/css/messenger.css">
-    <link rel="stylesheet" href="../scripts/messenger/css/messenger-theme-future.css">
-    <script src="../scripts/messenger/js/messenger.min.js"></script>
+<!-- Title Page-->
+<title>Laboratorio - Intranet</title>
+
+<!-- Fontfaces CSS-->
+<link href="../_style/css/font-face.css" rel="stylesheet" media="all">
+<link href="../_style/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+<link href="../_style/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+<link href="../_style/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+<!-- Bootstrap CSS-->
+<link href="../_style/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+<!-- Vendor CSS-->
+<link href="../_style/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+<link href="../_style/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+<link href="../_style/vendor/wow/animate.css" rel="stylesheet" media="all">
+<link href="../_style/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+<link href="../_style/vendor/slick/slick.css" rel="stylesheet" media="all">
+<link href="../_style/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+<link href="../_style/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+<!-- Main CSS-->
+<link href="../_style/css/theme.css" rel="stylesheet" media="all">

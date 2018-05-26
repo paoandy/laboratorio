@@ -17,7 +17,7 @@
     function makequery($sql) {
 			$_cfg['host'] = '127.0.0.1';
 			$_cfg['user'] = 'root';
-			$_cfg['pass'] = '';
+			$_cfg['pass'] = 'diegolanda';
 			$_cfg['db'] = 'laboratorio';
 
       $DB_LINK = mysqli_connect($_cfg['host'],$_cfg['user'],$_cfg['pass'], $_cfg['db']);
