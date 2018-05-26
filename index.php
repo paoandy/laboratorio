@@ -366,7 +366,7 @@
 										<div class="form-group row" style="width: 100%">
 											<div class="col-lg-8 col-md-12">
 												<input name="login" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario '" required="" type="email">
-												<input name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password '" required="" type="email">
+												<input name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password '" required="" type="password">
 											</div>
 
 											<div class="col-lg-4 col-md-12">
