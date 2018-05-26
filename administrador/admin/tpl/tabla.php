@@ -32,27 +32,34 @@
     }
     //print_r($filas);
 ?>
-<div class="tabla">
-    <div class="fila">
-        <?php
-            foreach ( $titulos as $titulo ){
-                echo "<div class='celda titulo'>".$titulo."</div>";
-            }
-        ?>
-    </div>
-    <?php
-        foreach ($filas as $fila){
-            echo "<div class='fila'>";
-            $id = null;
-            foreach ($fila as $celda){
-                if ( $id == null ) $id = $celda;
-                echo "<div class='celda'>".$celda."</div>";
-            }
-            echo "<div class='celda'>";
-            echo "<a href='#?".$id."'><img src='../images/edit.png'/></a>".
-				  "<a href='tpl/delete.php?id=".$id."&accion=".$accion."'><img src='../images/delete.png'/ onclick='return confirm(\"Esta Seguro Que Desea Eliminar El Registro?\");'></a>";
-            echo "</div>";
-            echo "</div>";
-        }
-    ?>
+
+<div class="table-responsive table--no-card m-b-30">
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <?php
+                    foreach ( $titulos as $titulo ){
+                        echo "<th>".$titulo."</th>";
+                    }
+                ?>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($filas as $fila){
+                    echo "<tr>";
+                        $id = null;
+                        foreach ($fila as $celda){
+                            if ( $id == null ) $id = $celda;
+                            echo "<td>".$celda."</td>";
+                        }
+                        echo "<td class='celda'>";
+                            echo "<a href='#?".$id."'><i class='fas fa-edit fa-2x'></i></a>";
+                            echo "<a href='tpl/delete.php?id=".$id."&accion=".$accion."'><i class='fas fa-trash fa-2x' onclick='return confirm(\"Esta Seguro Que Desea Eliminar El Registro?\");'></i></a>";
+                        echo "</td>";
+                    echo "</tr>";
+                }
+            ?>
+        </tbody>
+    </table>
 </div>
