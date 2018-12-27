@@ -2,8 +2,8 @@
     require_once('lib/includeLibs.php');
     
     $error = false;
-    print_r($_POST);
-    print_r($_SESSION);
+    // print_r($_POST);
+    // print_r($_SESSION);
 
     if (!(isset($_POST['login']) && isset($_POST['password']))) {
         if (!isset($_SESSION['tipousuario'])) {
