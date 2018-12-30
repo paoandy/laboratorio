@@ -169,16 +169,16 @@
 							<form class="booking-form" id="myForm" action="donate.php">
 								 	<div class="row">
 								 		<div class="col-lg-12 d-flex flex-column">
-							 				<input name="name" placeholder="Nombre paciente" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Patient name'" class="form-control mt-20" required="" type="text" required>
+							 				<input name="nombre" placeholder="Nombre paciente" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre paciente'" class="form-control mt-20" required="" type="text" required>
 								 		</div>
 							 			<div class="col-lg-6 d-flex flex-column">
-											<input name="phone" placeholder="Telefono" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" class="form-control mt-20" required="" type="text" required>
+											<input name="telefono" placeholder="Telefono" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telefono'" class="form-control mt-20" required="" type="text" required>
 										</div>
 										<div class="col-lg-6 d-flex flex-column">
-											<input id="datepicker2" name="app-date" class="single-in mt-20"  onblur="this.placeholder = 'Appoinment date'" type="text" placeholder="datos extra" required>
+											<input id="datepicker2" name="datos" class="single-in mt-20"  onblur="this.placeholder = 'datos extra'" type="text" placeholder="datos extra" required>
 										</div>
 										<div class="col-lg-12 flex-column">
-											<textarea class="form-control mt-20" name="message" placeholder="Mensaje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+											<textarea class="form-control mt-20" name="mensaje" placeholder="Mensaje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mensaje'" required=""></textarea>
 										</div>
 
 										<div class="col-lg-12 d-flex justify-content-end send-btn">
@@ -214,9 +214,9 @@
 								      <div class="content-overlay"></div>
 								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c1.jpg" alt="">
 								      	<div class="content-details fadeIn-bottom">
-								      		<h4>Andy Florence</h4>
+								      		<h4>Juan Cstellon</h4>
 								      		<p>
-								      			inappropriate behavior
+								      	
 								      		</p>
 								      	</div>
 								    </a>
@@ -230,9 +230,9 @@
 								      <div class="content-overlay"></div>
 								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c2.jpg" alt="">
 								      	<div class="content-details fadeIn-bottom">
-								      		<h4>Andy Florence</h4>
+								      		<h4>Carla Rodriguez</h4>
 								      		<p>
-								      			inappropriate behavior
+								      		
 								      		</p>
 								      	</div>
 								    </a>
@@ -246,9 +246,9 @@
 								      <div class="content-overlay"></div>
 								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c3.jpg" alt="">
 								      	<div class="content-details fadeIn-bottom">
-								      		<h4>Andy Florence</h4>
+								      		<h4>Victor Claros</h4>
 								      		<p>
-								      			inappropriate behavior
+								      		
 								      		</p>
 								      	</div>
 								    </a>
@@ -262,9 +262,9 @@
 								      <div class="content-overlay"></div>
 								  		 <img class="content-image img-fluid d-block mx-auto" src="img/c4.jpg" alt="">
 								      	<div class="content-details fadeIn-bottom">
-								      		<h4>Andy Florence</h4>
+								      		<h4>Marcela Rodriguez</h4>
 								      		<p>
-								      			inappropriate behavior
+								      	
 								      		</p>
 								      	</div>
 								    </a>
@@ -339,16 +339,14 @@
 							<div class="single-footer-widget">
 								<h6>Informacion</h6>
 								<ul class="footer-nav">
-									<li><a href="#">Managed Website</a></li>
-									<li><a href="#">Manage Reputation</a></li>
-									<li><a href="#">Power Tools</a></li>
-									<li><a href="#">Marketing servicio</a></li>
+									<li><a href="#">Sitio Web</a></li>
+									<li><a href="#">servicios</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-lg-4  col-md-6">
 							<div class="single-footer-widget mail-chimp">
-								<h6 class="mb-20">Contact Us</h6>
+								<h6 class="mb-20">contactos</h6>
 								<p>
 									Av. Blanco Galindo Km. 3
 								</p>
