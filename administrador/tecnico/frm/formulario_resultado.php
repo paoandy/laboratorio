@@ -1,8 +1,8 @@
 <?php
-	if (!isset($_GET['id']) )
-		header('Location:index.php');
+	//"if (!isset($_GET['id']) )
+		//"header('Location:index.php');
 		
-	$idorden = $_GET['id'];
+	//"$idorden = $_GET['id'];
 	//"SELECT idrango, nombre, nombrecategoria FROM rango, categoria WHERE categoria.idcategoria = rango.idcategoria AND CATEGORIA.IDCATEGORIA IN ( SELECT IDCATEGORIA FROM RESULTADO WHERE IDORDEN = ".$idorden." ) ORDER BY categoria.nombrecategoria"
     $query = new query;
     

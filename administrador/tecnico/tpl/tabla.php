@@ -3,70 +3,52 @@
     $filas = array();
 
     $query = new query;
-	
-	$especial = false;
-	$opciones = false;
-	
-	$columna = -1;
 
-    switch($accion){
+  switch($accion){
         case 'paciente':
-            $titulos = array('ID', 'Nombre', 'Edad', 'Telefono' );
+            $titulos = array('ID', 'Nombre', 'Edad', 'Telefono','Operaciones');
             $filas = $query->getRowsArray('IDPACIENTE, NOMBRE, EDAD, TELEFONO','paciente');
             break;
 		case 'medico':
-            $titulos = array('ID', 'Nombre', 'Email', 'Telefono' );
+            $titulos = array('ID', 'Nombre', 'Email', 'Telefono','Operaciones');
             $filas = $query->getRowsArray('IDMEDICO, NOMBRE, EMAIL, TELEFONO','medico');
             break;
 		case 'orden':
-            $titulos = array('ID', 'Fecha', 'Estado', 'Descripcion', 'Material' );
+            $titulos = array('ID', 'Fecha', 'Estado', 'Descripcion', 'Material','Operaciones');
             $filas = $query->getRowsArray('IDORDEN, FECHAPEDIDO, ESTADO, DESCRIPCIONORDEN, MATERIAL','orden',' ORDER BY ESTADO ASC');
-			$especial = true;
-			$columna = 2;
             break;
     }
     //print_r($filas);
 ?>
-<div class="tabla">
-    <div class="fila">
-        <?php
-            foreach ( $titulos as $titulo ){
-                echo "<div class='celda titulo'>".$titulo."</div>";
-            }
-        ?>
-    </div>
-    <?php
-        foreach ($filas as $fila){
-			$aux = 0;
-            echo "<div class='fila'>";
-            $id = null;
-            foreach ($fila as $celda){
-				if ( $especial == true && $aux == $columna){
-					if ( $id == null ) $id = $celda;
-					echo "<div class='celda'>".formatear($celda)."</div>";
-				}
-				else {
-					if ( $id == null ) $id = $celda;
-					echo "<div class='celda'>".$celda."</div>";
-				}
-			
-				$aux++;
-            }
-            echo "</div>";
-        }
-		
-		function formatear($celda){
-			switch($celda){
-				case 0:
-					return "<img src='../images/registrado.png'/> Registrado";
-					break;
-				case 1:
-					return "<img src='../images/terminado.png'/> Terminado";
-					break;
-				case 2:
-					return "<img src='../images/despachado.png'/> Despachado";
-					break;	
-			}
-		}
-    ?>
+
+<div class="table-responsive table--no-card m-b-30">
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <?php
+                    foreach ( $titulos as $titulo ){
+                        echo "<th>".$titulo."</th>";
+                    }
+                ?>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($filas as $fila){
+                    echo "<tr>";
+                        $id = null;
+                        foreach ($fila as $celda){
+                            if ( $id == null ) $id = $celda;
+                            echo "<td>".$celda."</td>";
+                        }
+                        echo "<td class='celda'>";
+                            echo "<a href='#?".$id."'><i class='fas fa-edit fa-2x'></i></a>";
+                            echo "<a href='tpl/delete.php?id=".$id."&accion=".$accion."'><i class='fas fa-trash fa-2x' onclick='return confirm(\"Esta Seguro Que Desea Eliminar El Registro?\");'></i></a>";
+                        echo "</td>";
+                    echo "</tr>";
+                }
+            ?>
+        </tbody>
+    </table>
 </div>
+

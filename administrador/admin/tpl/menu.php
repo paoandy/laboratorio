@@ -20,7 +20,7 @@
           </ul>
         </li>
         <li class="has-sub">
-          <a class="js-arrow" href="#"><i class="fas fa-plus-circle"></i>Regisro</a>
+          <a class="js-arrow" href="#"><i class="fas fa-plus-circle"></i>Registro</a>
           <ul class="list-unstyled navbar__sub-list js-sub-list">
             <li><a href="analisis.php">Analisis</a></li>
             <li><a href="usuario.php">Usuario</a></li>
