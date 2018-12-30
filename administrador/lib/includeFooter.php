@@ -1,5 +1,4 @@
-  <!-- Jquery JS-->
-  <script src="../_style/vendor/jquery-3.2.1.min.js"></script>
+
   <!-- Bootstrap JS-->
   <script src="../_style/vendor/bootstrap-4.1/popper.min.js"></script>
   <script src="../_style/vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -21,3 +20,4 @@
 
   <!-- Main JS-->
   <script src="../_style/js/main.js"></script>
+  <script src="../lib/zebra/public/javascript/zebra_form.js"></script>

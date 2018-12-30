@@ -45,7 +45,7 @@
                 $query = new query;
 
                 // instantiate a Zebra_Form object
-                   $form = new Zebra_Form('frmSeccion');
+                $form = new Zebra_Form('frmSeccion');
 
                 $form->add('label', 'label_message', 'nombreseccion', 'Nombre Seccion:');
                 $obj = $form->add('text', 'nombreseccion', '', array('placeholder' => 'Seccion de Analisis'));

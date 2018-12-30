@@ -27,7 +27,7 @@
       <!-- MAIN CONTENT-->
       <div class="main-content">
         <div class="container">
-          <div class="row">
+          <div class="row Zebra_Form">
             <?php include 'frm/formulario_analisis.php';?>
           </div>
           <div class="row">

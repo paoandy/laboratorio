@@ -5,6 +5,9 @@
 <!-- Title Page-->
 <title>Laboratorio - Intranet</title>
 
+<!-- Jquery JS-->
+<script src="../_style/vendor/jquery-3.2.1.min.js"></script>
+
 <!-- Fontfaces CSS-->
 <link href="../_style/css/font-face.css" rel="stylesheet" media="all">
 <link href="../_style/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -25,3 +28,11 @@
 
 <!-- Main CSS-->
 <link href="../_style/css/theme.css" rel="stylesheet" media="all">
+
+<!-- Zebra -->
+<link rel="stylesheet" href="../lib/zebra/public/css/zebra_form.css">
+
+<style>
+  .Zebra_Form form { width: 100%;}
+  .Zebra_Form table td:nth-child(1) { min-width: 250px;}
+</style>
