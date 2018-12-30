@@ -15,42 +15,47 @@
 <head>
     <?php include '../lib/includeHead.php'?>
 </head>
-<body>
-    <div id="backgroundFix"></div>
-    <div id="page">
-        <header>
-            <section>
-                <center>
-                    <span>
-                        <img src="../images/logo.png"/>HEMOLAB
-                    </span>
-                </center>
-                <nav>
-                    <?php include 'tpl/menu.php';?>
-                </nav>
-            </section>
-        </header>
-        <section id="main">
-            <section id="contenido">
-                <section>
-					<?php 
-                        if ( isset( $_GET['msj']) ) {
-                            echo "<script> $(document).ready(function() { Messenger().post({ message: ".$_GET['msj'].", type: 'error', showCloseButton: true }); }); </script>";
-                        }
-                    ?>
-                    <?php
-                        $accion = $_GET['accion'];
-                        include 'tpl/tabla.php';
-                    ?>
-                </section>
-            </section>
-            <section id="opciones">
-                <?php include 'tpl/opciones.php';?>
-            </section>
-        </section>
-        <footer>
-            <?php include 'tpl/footer.php';?>
-        </footer>
+
+<body class="animsition">
+  <div class="page-wrapper">
+    <?php include 'tpl/menu.php';?>
+    <?php 
+      // Solo para index
+      if ( isset( $_GET['msj']) ) {
+        echo "<script> $(document).ready(function() { Messenger().post({ message: ".$_GET['msj'].", type: 'error', showCloseButton: true }); }); </script>";
+      }
+    ?>
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+      <?php include 'tpl/header.php';?>
+      <!-- MAIN CONTENT-->
+      <div class="main-content">
+        <div class="container">
+          <div class="row">
+          <?php 
+            if ( isset( $_GET['msj']) ) {
+              echo "<script> $(document).ready(function() { Messenger().post({ message: ".$_GET['msj'].", type: 'error', showCloseButton: true }); }); </script>";
+            }
+          ?>
+          <?php
+            $accion = $_GET['accion'];
+            include 'tpl/tabla.php';
+          ?>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="copyright">
+                <?php include 'tpl/footer.php';?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END MAIN CONTENT-->
+      <!-- END PAGE CONTAINER-->
     </div>
+  </div>
+
+  <?php include '../lib/includeFooter.php'?>
 </body>
 </html>
