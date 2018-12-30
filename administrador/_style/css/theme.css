@@ -14639,3 +14639,33 @@ section {
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
 }
+
+/* Servicios */
+
+.servicio {
+  margin: 15px;
+  padding: 5px;
+  width: 220px;
+}
+
+.orden {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px dashed #4ae9e0;
+  justify-content: center;
+}
+
+.servicio h1 {
+  font-size: 16px;
+}
+
+.servicio ul li {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.servicio ul li span:nth-child(2) {
+  flex: 2;
+}

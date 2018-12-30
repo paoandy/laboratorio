@@ -33,6 +33,6 @@
 <link rel="stylesheet" href="../lib/zebra/public/css/zebra_form.css">
 
 <style>
-  .Zebra_Form form { width: 100%;}
+  .row form { width: 100%;}
   .Zebra_Form table td:nth-child(1) { min-width: 250px;}
 </style>

@@ -56,6 +56,27 @@
 
             <fieldset style="margin:20px; padding:20px;">
             <legend>Analisis Disponibles</legend>
+            <div class="orden">
+                <?php
+                $query = new query;
+
+                $secciones = $query->getRowsArray('*', 'seccion');
+
+                $secciones = $query->getRowsArray('*','seccion', 'ORDER BY seccion.nombreseccion');
+                
+                foreach ($secciones as $seccion) {
+                    echo "<div class='servicio'>";
+                    echo "<h1>".$seccion['NOMBRESECCION']."</h1>";
+                    echo "<ul>";
+                        $subcategorias = $query->getRowsArray('*','categoria','WHERE IDSECCION ='.$seccion['IDSECCION']);
+                        foreach($subcategorias as $subcategoria){
+                            echo "<li><input class='check' type='checkbox' name='realizar[".$subcategoria['IDCATEGORIA']."]' value='".$subcategoria['IDCATEGORIA']."' data-codigo='".$subcategoria['IDCATEGORIA']."' data-costo='".$subcategoria['COSTO']."' data-nombre='".$subcategoria['NOMBRECATEGORIA']."'/><span>".$subcategoria['NOMBRECATEGORIA']." : </span><span>".$subcategoria['COSTO']."Bs.</span></li>";
+                        }
+                    echo "</ul>";
+                    echo "</div>";
+                }
+                ?>
+            </div>
             <?php
                     foreach ($secciones as $seccion) {
                         echo "<div class='servicio'>";
@@ -70,7 +91,7 @@
                         echo "</div>";
                     }
             ?>
-        </fieldset>
+            </fieldset>
             <script>
                             $(document).ready(function(){
                                 $(".check").each(function() {
